@@ -1,16 +1,23 @@
 package co.edu.uco.nose.business.domain;
 
-class Domain {
-private UUID id;
-protected Domain(final UUID id) {
-	
-}
-public UUID getId() {
-	return id;
-}
+import java.util.UUID;
 
-public void setId(UUID id) {
-	if(id==null)
-	this.id =id;
-}
+import co.edu.uco.nose.crosscuting.helper.UUIDHelper;
+
+class Domain {
+
+	private UUID id;
+
+	protected Domain(final UUID id) {
+		setId(id);
+	}
+
+	public UUID getId() {
+		return id;
+	}
+
+	public void setId(UUID id) {
+		this.id = UUIDHelper.getUUIDHelper().getDefault(id);
+	}
+
 }
