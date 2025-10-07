@@ -15,6 +15,9 @@ public static String getDefault(final String value) {
 public static String getDefaultWithTrim(final String value) {
 	return getDefault(value).trim();	
 }
+public static boolean isEmpty(final String value) {
+	return EMPTY.equals(getDefault(value));
+}
 
 }
 

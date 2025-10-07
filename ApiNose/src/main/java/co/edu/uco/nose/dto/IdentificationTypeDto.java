@@ -1,4 +1,4 @@
-package co.edu.uco.nose.business.domain;
+package co.edu.uco.nose.dto;
 
 import java.util.UUID;
 
@@ -6,31 +6,31 @@ import co.edu.uco.nose.crosscuting.helper.ObjectHelper;
 import co.edu.uco.nose.crosscuting.helper.TextHelper;
 import co.edu.uco.nose.crosscuting.helper.UUIDHelper;
 
-public class IdentificationTypeDomain extends Domain {
+public class IdentificationTypeDto extends Dto {
 	
 	private String name;
 	
-	public IdentificationTypeDomain() {
+	public IdentificationTypeDto() {
 		super(UUIDHelper.getUUIDHelper().getDefault());
 		setName(TextHelper.getDefault());
 	}
 	
-	public IdentificationTypeDomain(final UUID id) {
+	public IdentificationTypeDto(final UUID id) {
 		super(id);
 		setName(TextHelper.getDefault());
 	}
 	
 
-	public IdentificationTypeDomain(final UUID id, final String name) {
+	public IdentificationTypeDto(final UUID id, final String name) {
 		super(id);
-		setName(name);	
+		this.name = name;
 	}
 	
-	static IdentificationTypeDomain getDefaultValue() {
-		return new IdentificationTypeDomain();
+	static IdentificationTypeDto getDefaultValue() {
+		return new IdentificationTypeDto();
 	}
 	
-	static IdentificationTypeDomain getDefaultValue(final IdentificationTypeDomain identifiactionType) {
+	static IdentificationTypeDto getDefaultValue(final IdentificationTypeDto identifiactionType) {
 		return ObjectHelper.getDefault(identifiactionType, getDefaultValue());
 	}
 

@@ -1,4 +1,4 @@
-package co.edu.uco.nose.business.domain;
+package co.edu.uco.nose.dto;
 
 
 import java.util.UUID;
@@ -6,23 +6,25 @@ import java.util.UUID;
 import co.edu.uco.nose.crosscuting.helper.ObjectHelper;
 import co.edu.uco.nose.crosscuting.helper.TextHelper;
 import co.edu.uco.nose.crosscuting.helper.UUIDHelper;
+import co.edu.uco.nose.entity.StateEntity;
 
-public final class CityDomain extends Domain{
+public final class CityDto extends Dto{
 	private String name;
-	private StateDomain state;
+	private StateDto state;
 	
-	public CityDomain() {
+	public CityDto() {
 		super(UUIDHelper.getUUIDHelper().getDefault());
 		setName(TextHelper.getDefault());  
 	}
-	public CityDomain(final UUID id,final String name,final StateDomain state) {
+	public CityDto(final UUID id,final String name,final StateDto state) {
 		super(id);
 		setName(name);	
 		setState(state);	
+		
 	}
 	
-	static CityDomain  getDefaultValue() {
-		return new CityDomain(); 
+	static CityDto  getDefaultValue() {
+		return new CityDto(); 
 
 }
 	public String getName() {
@@ -33,10 +35,9 @@ public final class CityDomain extends Domain{
 	public void setName(final String name) {
 		this.name=TextHelper.getDefaultWithTrim(name);
 	}
-	public void setState(final StateDomain state) {
-		this.state=ObjectHelper.getDefault(state,StateDomain.getDefaultValue());	
+	public void setState(final StateDto state) {
+		this.state=ObjectHelper.getDefault(state , StateDto.getDefaultValue());
 	}
-	
 	
 }
 	
