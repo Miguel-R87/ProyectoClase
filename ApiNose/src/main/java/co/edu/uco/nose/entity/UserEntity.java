@@ -7,9 +7,9 @@ import co.edu.uco.nose.crosscuting.helper.ObjectHelper;
 import co.edu.uco.nose.crosscuting.helper.TextHelper;
 import co.edu.uco.nose.crosscuting.helper.UUIDHelper;
 
-public class UserEntity extends Entity {
+public final class UserEntity extends Entity {
 	 
-	private IdentificationTypeEntity identificationType;
+	private IdTypeEntity identificationType;
 	private String identificationNumber;
 	private String firstName;
 	private String middleName;
@@ -23,7 +23,7 @@ public class UserEntity extends Entity {
 	
 	public UserEntity() {
 		super(UUIDHelper.getUUIDHelper().getDefault());
-		setIdentificationType(IdentificationTypeEntity.getDefaultValue());
+		setIdentificationType(IdTypeEntity.getDefaultValue());
 		setIdentificationNumber(TextHelper.getDefault());;
 		setFirstName(TextHelper.getDefault());
 		setMiddleName(TextHelper.getDefault());
@@ -38,7 +38,7 @@ public class UserEntity extends Entity {
 	
 	public UserEntity(final UUID id) {
 		super(id);
-		setIdentificationType(IdentificationTypeEntity.getDefaultValue());
+		setIdentificationType(IdTypeEntity.getDefaultValue());
 		setIdentificationNumber(TextHelper.getDefault());
 		setFirstName(TextHelper.getDefault());
 		setMiddleName(TextHelper.getDefault());
@@ -52,7 +52,7 @@ public class UserEntity extends Entity {
 	}
 	
 	
-	public UserEntity(final UUID id, final IdentificationTypeEntity identificationType, final String identificationNumber, final String firstName,
+	public UserEntity(final UUID id, final IdTypeEntity identificationType, final String identificationNumber, final String firstName,
 			final String middleName, final String lastName, final String secondLastName, final CityEntity residenceCity, final String email,
 			final String cellPhoneNumber, final boolean emailConfirmed, final boolean cellPhoneNumberConfirmed) {
 		super(id);
@@ -77,12 +77,12 @@ public class UserEntity extends Entity {
 		return ObjectHelper.getDefault(user, getDefaultValue());
 	}
 
-	public IdentificationTypeEntity getIdentificationType() {
+	public IdTypeEntity getIdentificationType() {
 		return identificationType;
 	}
 	
-	public void setIdentificationType(final IdentificationTypeEntity identificationType) {
-		this.identificationType = ObjectHelper.getDefault(identificationType, IdentificationTypeEntity.getDefaultValue());
+	public void setIdentificationType(final IdTypeEntity identificationType) {
+		this.identificationType = ObjectHelper.getDefault(identificationType, IdTypeEntity.getDefaultValue());
 	}
 	
 	public String getIdentificationNumber() {

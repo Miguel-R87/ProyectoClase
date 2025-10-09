@@ -6,31 +6,31 @@ import co.edu.uco.nose.crosscuting.helper.ObjectHelper;
 import co.edu.uco.nose.crosscuting.helper.TextHelper;
 import co.edu.uco.nose.crosscuting.helper.UUIDHelper;
 
-public class IdentificationTypeEntity extends Entity{
+public final class IdTypeEntity extends Entity{
 	
 	private String name;
 	
-	public IdentificationTypeEntity() {
+	public IdTypeEntity() {
 		super(UUIDHelper.getUUIDHelper().getDefault());
 		setName(TextHelper.getDefault());
 	}
 	
-	public IdentificationTypeEntity(final UUID id) {
+	public IdTypeEntity(final UUID id) {
 		super(id);
 		setName(TextHelper.getDefault());
 	}
 	
 
-	public IdentificationTypeEntity(final UUID id, final String name) {
+	public IdTypeEntity(final UUID id, final String name) {
 		super(id);
 		setName(name);	
 	}
 	
-	static IdentificationTypeEntity getDefaultValue() {
-		return new IdentificationTypeEntity();
+	static IdTypeEntity getDefaultValue() {
+		return new IdTypeEntity();
 	}
 	
-	static IdentificationTypeEntity getDefaultValue(final IdentificationTypeEntity identifiactionType) {
+	static IdTypeEntity getDefaultValue(final IdTypeEntity identifiactionType) {
 		return ObjectHelper.getDefault(identifiactionType, getDefaultValue());
 	}
 
