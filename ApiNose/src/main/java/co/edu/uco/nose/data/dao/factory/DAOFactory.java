@@ -1,3 +1,4 @@
+package co.edu.uco.nose.data.dao.factory;
 import co.edu.uco.nose.data.dao.entity.IdTypeDAO;
 import co.edu.uco.nose.data.dao.entity.CityDAO;
 import co.edu.uco.nose.data.dao.entity.CountryDAO;
@@ -7,7 +8,7 @@ import java.sql.Connection;
 
 public abstract class DAOFactory {
     protected Connection connection;
-    protected FactoryEnum factory = FactoryEnum.SQLSERVER;
+    protected FactoryEnum factory = FactoryEnum.POSTGRESQL;
 
     public static DAOFactory getFactory() {
         return null;
