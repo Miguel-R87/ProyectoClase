@@ -15,7 +15,17 @@ TECHNICAL_ERROR_SQL_CONNECTION_IS_CLOSED("Conexión contra la fuente de informac
 		
 USER_ERROR_SQL_CONNECTION_UNEXCEPTED_ERROR_VALIDATING_CONNECTION_STATUS("Problema inesperado validando el estado de la conexion contra la fuente de datos deseada","Se ha presentado un problema inesperado tratando de validar el estado de la conexion requerida para llevar a cabo la operación contra la fuente de información deseada.por favor intente de nuevo y si el problema persiste contacte al administrador de la aplicación."),
 
-TECHNICAL_ERROR_SQL_CONNECTION_UNEXCEPTED_ERROR_VALIDATING_CONNECTION_STATUS("Error inesperado validando si la conexión contra la base de datos estaba abierta","Se presento un error de tipo SQLException al validar si la conexion contra la base de datos esta o no abierta,por favor valide la consola de errores para revisar con detalle el problema presentado");
+TECHNICAL_ERROR_SQL_CONNECTION_UNEXCEPTED_ERROR_VALIDATING_CONNECTION_STATUS("Error inesperado validando si la conexión contra la base de datos estaba abierta","Se presento un error de tipo SQLException al validar si la conexion contra la base de datos esta o no abierta,por favor valide la consola de errores para revisar con detalle el problema presentado"),
+USER_ERROR_SQL_CONNECTION_UNEXPECTED_ERROR_VALIDATING_CONNECTION_STATUS("Problema inesperado validando el estado de la conexión contra la fuente de datos deseada ", "Se ha presentado un problema inesperado tratando de validar el estado de la conexión requerida para llevar a cabo la operación contra la fuente de información deseada. Por favor intente de nuevo y si el problema persiste, contacte al administrador de la aplicación"),
+TECHNICAL_ERROR_SQL_CONNECTION_UNEXPECTED_ERROR_VALIDATING_CONNECTION_STATUS("Error inesperado validando si la conexión contra la base de datos estaba abierta", "Se presento un error de tipo SQLException al validar si la conexión contra base de datos estaba o no abierta." ),
+USER_ERROR_SQL_CONNECTION_UNEXPECTED_ERROR_VALIDATING_TRANSACTION_IS_STARTED("Error inesperado validando el estado de la transacción", "Ocurrió un problema inesperado al validar si la transacción contra la fuente de información deseada estaba iniciada. Por favor intente de nuevo y si el problema persiste, contacte al administrador de la aplicación."),
+
+
+
+	
+	
+	
+	
 private String title;
 private String content;
 private MessagesEnum(final String title, final String content) {
