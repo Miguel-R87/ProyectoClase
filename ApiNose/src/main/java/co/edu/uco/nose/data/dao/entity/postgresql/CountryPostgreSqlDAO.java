@@ -7,9 +7,9 @@ import co.edu.uco.nose.data.dao.entity.CountryDAO;
 import co.edu.uco.nose.data.dao.entity.SqlConnection;
 import co.edu.uco.nose.entity.CountryEntity;
 
-public final class CountrySqlServerDAO extends SqlConnection implements CountryDAO {
+public final class CountryPostgreSqlDAO extends SqlConnection implements CountryDAO {
 
-	public CountrySqlServerDAO(final Connection connection) {
+	public CountryPostgreSqlDAO(final Connection connection) {
 		super(connection);
 		// TODO Auto-generated constructor stub
 	}

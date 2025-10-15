@@ -5,6 +5,7 @@ import java.sql.SQLException;
 
 import co.edu.uco.nose.crosscuting.exception.NoseException;
 import co.edu.uco.nose.crosscuting.helper.ObjectHelper;
+import co.edu.uco.nose.crosscuting.helper.SqlConnectionHelper;
 import co.edu.uco.nose.crosscuting.messagescatalog.MessagesEnum;
 
 public abstract class SqlConnection {
@@ -19,11 +20,9 @@ public abstract class SqlConnection {
         return connection;
     }
 
-    private void setConnection(final Connection connection) {    
-        if (ObjectHelper.isNull(connection)) {
-            var userMessage = MessagesEnum.USER_ERROR_SQL_CONNECTION_IS_EMPTY.getContent();
-            var technicalMessage = MessagesEnum.TECHNICAL_ERROR_SQL_CONNECTION_IS_EMPTY.getContent();
-            throw NoseException.create(userMessage, technicalMessage);
+    private void setConnection(final Connection connection) {
+    	SqlConnectionHelper.ensureConnectionIsOpen(connection);
+    	this.connection = connection;
         }
         
         try {

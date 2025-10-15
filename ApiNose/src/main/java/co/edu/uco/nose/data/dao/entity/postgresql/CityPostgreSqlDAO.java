@@ -11,9 +11,9 @@ import java.util.UUID;
 
 import java.util.List;
 
-public final class CitySqlServerDAO extends SqlConnection implements CityDAO {
+public final class CityPostgreSqlDAO extends SqlConnection implements CityDAO {
 	
-public CitySqlServerDAO(final Connection connection) {
+public CityPostgreSqlDAO(final Connection connection) {
 		super(connection);
 	}
 	@Override

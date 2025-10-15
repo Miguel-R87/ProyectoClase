@@ -7,9 +7,9 @@ import java.sql.Connection;
 import java.util.List;
 import java.util.UUID;
 
-public final class StateSqlServerDAO extends SqlConnection implements StateDAO {
+public final class   StatePostgreSqlDAO extends SqlConnection implements StateDAO {
 
-	public StateSqlServerDAO(Connection connection) {
+	public StatePostgreSqlDAO(Connection connection) {
 		super(connection);
 	}
 	@Override

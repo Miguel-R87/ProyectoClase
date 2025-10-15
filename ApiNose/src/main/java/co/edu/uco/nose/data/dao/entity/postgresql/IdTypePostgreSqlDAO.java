@@ -7,9 +7,9 @@ import java.util.UUID;
 import java.util.List;
 import java.sql.Connection;
 
-public final class IdTypeSqlServerDAO extends SqlConnection implements IdTypeDAO {
+public final class IdTypePostgreSqlDAO extends SqlConnection implements IdTypeDAO {
 
-	public IdTypeSqlServerDAO(Connection connection) {
+	public IdTypePostgreSqlDAO(Connection connection) {
 		super(connection);
 	}
 	@Override
