@@ -24,20 +24,9 @@ public abstract class SqlConnection {
     	SqlConnectionHelper.ensureConnectionIsOpen(connection);
     	this.connection = connection;
         }
+    
         
-        try {
-            if (connection.isClosed()) {
-                var userMessage = MessagesEnum.USER_ERROR_SQL_CONNECTION_IS_CLOSED.getContent();
-                var technicalMessage = MessagesEnum.TECHNICAL_ERROR_SQL_CONNECTION_IS_CLOSED.getContent();
-                throw NoseException.create(userMessage, technicalMessage);
-            }
-        } catch (final SQLException exception) {
-            var userMessage = MessagesEnum.USER_ERROR_SQL_CONNECTION_UNEXCEPTED_ERROR_VALIDATING_CONNECTION_STATUS.getContent();
-            var technicalMessage = MessagesEnum.TECHNICAL_ERROR_SQL_CONNECTION_UNEXCEPTED_ERROR_VALIDATING_CONNECTION_STATUS.getContent();
-            throw NoseException.create(exception,userMessage, technicalMessage);
-        }
-        this.connection = connection;
-    }
+        
 }
 
 	

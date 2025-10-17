@@ -28,11 +28,50 @@ public enum MessagesEnum {
 	
 	
 	
+	// MENSAJES EXCEPCIONES USUARIO
+    // create
+    USER_ERROR_REGISTRATION_FAILED_SQL_EXCEPTION(" Se ha presentado un problema tratando de registrar la información de un nuevo usuario"," por favor intente de nuevo si el problema persiste contacte al administrador del sistema"),
+    TECHNICAL_ERROR_REGISTRATION_SQL_EXCEPTION("Se ha presentado un error inesperado al registrar la información del nuevo usuario", 
+        "Se presentó una excepción SQL al intentar registrar al nuevo usuario. Esto puede ser causado por problemas con la base de datos, como una violación de restricción de clave o problemas de conexión."),
+
+    USER_ERROR_REGISTRATION_FAILED(" Se ha presentado un problema inesperado tratando de registrar la información del nuevo usuario por favor intente de nuevo"," si el problema persiste por favor contacte al administrador del sistema."),
+    TECHNICAL_ERROR_REGISTRATION_FAILED("Se ha presentado un problema inesperado al tratar de ejecutar el registro de un nuevo usuario ","Se ha presentado un problema al intentar regisrar un nuevo usuario no es un SQL Exception"),
+
+    // consultas
+    USER_ERROR_SEARCH_USER_FAILED_SQL_EXCEPTION("Se ha presentado un problema tratando de consultar la información de un usuario"," por favor intente de nuevo si el  problema persiste por favor contacte al administrador del sistema"),
+    TECHNICAL_ERROR_SEARCH_USER_FAILED_SQL_EXCEPTION("Se ha presentado un problema inesperado al tratar de ejecutar el proceso de consulta del usuario","verifique que si este conectado a la base de datos"),
+    USER_ERROR_SEARCH_USER_FAILED("Se ha presentado un problema inesperado tratando de consultar la información de un usuario por favor intente de nuevo"," Si el problema persiste por favor contacte al administrador del sistema"),
+    TECHNICAL_ERROR_SEARCH_USER_FAILED( "Se ha presentado un problema inesperado al tratar de ejecutar el proceso de consulta del usuario ","verifique que si este conectado a la base de datos"),
+
+    // update
+    USER_ERROR_UPDATE_USER_FAILED_SQL_EXCEPTION("Se ha presentado un problema tratando de actualizar la información de un usuario por favor intente de nuevo"," Si el problema persiste por favor contacte al administrador del sistema"),
+    TECHNICAL_ERROR_UPDATE_USER_FAILED_SQL_EXCEPTION("Se ha presentado un problema inesperado al tratar de ejecutar la actualización de un usuario ","verifique que si este conectado a la base de datos"),
+    USER_ERROR_UPDATE_USER_FAILED("Se ha presentado un problema inesperado tratando de actualizar la información de un usuario por favor intente de nuevo"," Si el problema persiste por favor contacte al administrador del sistema"),
+    TECHNICAL_ERROR_UPDATE_USER_FAILED( "Se ha presentado un problema inesperado al tratar de ejecutar el proceso de actualizacion de un  usuario ","verifique que si este conectado a la base de datos"),
+
+    // delete 
+    USER_ERROR_DELETE_USER_FAILED_SQL_EXCEPTION("Se ha presentado un problema tratando de eliminar un usuario por favor intente de nuevo.","Si el problema persiste por favor contacte al administrador del sistema"),
+    TECHNICAL_ERROR_DELETE_USER_FAILED_SQL_EXCEPTION("Se ha presentado un problema inesperado al tratar de ejecutar el proceso de eliminar un usuario","verifique que si este conectado a la base de datos"),
+    USER_ERROR_DELETE_USER_FAILED("Se ha presentado un problema inesperado tratando eliminar  un usuario por favor intente de nuevo"," Si el problema persiste por favor contacte al administrador del sistema"),
+    TECHNICAL_ERROR_DELETE_USER_FAILED( "Se ha presentado un problema inesperado al tratar de ejecutar el proceso de eliminacion de un usuario ","verifique que si este conectado a la base de datos"),
+	
+    //MENSAJES EXCEPCIONES DEPARTAMENTO
+    // consultas
+    USER_ERROR_SEARCH_STATE_FAILED_SQL_EXCEPTION("Se ha presentado un problema tratando de consultar la información de un departamento"," por favor intente de nuevo si el  problema persiste por favor contacte al administrador del sistema"),
+    TECHNICAL_ERROR_STATE_USER_FAILED_SQL_EXCEPTION("Se ha presentado un problema inesperado al tratar de ejecutar el proceso de consulta del departamento","se ha presentado un problema al intentar realizar la consulta de un departamento"),
+    USER_ERROR_SEARCH_STATE_FAILED("Se ha presentado un problema inesperado tratando de consultar la información de un usuario por favor intente de nuevo","Por favor intente de nuevo Si el problema persiste por favor contacte al administrador del sistema"),
+    TECHNICAL_ERROR_STATE_USER_FAILED( "Se ha presentado un problema inesperado al tratar de ejecutar el proceso de consulta del departamento ","se ha presentado un problema al intentar realizar la consulta de un departamento no es un SQL Exception el problema"),
+
+	
+	
+	
+	
+	
 	USER_ERROR_TRANSACTION_IS_NOT_STARTED("Transacción no iniciada", "No se ha iniciado la transacción contra la fuente de información deseada. Por favor intente de nuevo."),
 	TECHNICAL_ERROR_TRANSACTION_IS_NOT_STARTED( "Transacción no iniciada", "La conexión indica que el modo de auto-commit está activado, por lo tanto no se ha iniciado la transacción."),
 	TECHNICAL_ERROR_SQL_CONNECTION_SQL_EXCEPTION_VALIDATING_TRANSACTION_IS_NOT_STARTED("Error inesperado validando si el autocommit contra la base de datos estaba desactivado", "Se presentó un error de tipo SQLException al validar si el autocommit habia sido desactivado ."),
 	USER_ERROR_SQL_CONNECTION_UNEXPECTED_ERROR_VALIDATING_TRANSACTION_IS_NOT_STARTED("Error inesperado validando el manejo de operaciones contra la fuente de datos", "Ocurrió un problema inesperado tratando de validar el estado de manejo de operaciones"),
-	TECHNICAL_ERROR_SQL_CONNECTION_UNEXPECTED_ERROR_VALIDATING_TRANSACTION_IS_NOT_STARTED("Error inesperado validando si el autocommit contra la base de datos estaba desactivado", "Se presentó un problema inesperado al validar si el autocommit habia sido desactivado. No fue una SQLException, sino un error no controlado en el proceso de validación.");
+	TECHNICAL_ERROR_SQL_CONNECTION_UNEXPECTED_ERROR_VALIDATING_TRANSACTION_IS_NOT_STARTED("Error inesperado validando si el autocommit contra la base de datos estaba desactivado", "Se presentó un problema inesperado al validar si el autocommit habia sido desactivado. No fue una SQLException, sino un error no controlado en el proceso de validación."), ;
 	
 private String title;
 private String content;
