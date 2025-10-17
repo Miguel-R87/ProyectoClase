@@ -70,33 +70,34 @@ public final class  UserPostgreSqlDAO extends SqlConnection implements UserDAO {
 	    final var sql = new StringBuilder();
 
 	    sql.append("SELECT ");
-	    sql.append("  u.id, ");
-	    sql.append("  ti.id AS idTipoIdentificacion, ");
-	    sql.append("  ti.nombre AS nombreTipoIdentificacion, ");
-	    sql.append("  u.numeroIdentificacion, ");
-	    sql.append("  u.primerNombre, ");
-	    sql.append("  u.segundoNombre, ");
-	    sql.append("  u.primerApellido, ");
-	    sql.append("  u.segundoApellido, ");
-	    sql.append("  c.id AS idCiudadResidencia, ");
-	    sql.append("  c.nombre AS nombreCiudadResidencia, ");
-	    sql.append("  d.id AS idDepartamentoCiudadResidencia, ");
-	    sql.append("  d.nombre AS nombreDepartamentoCiudadResidencia, ");
-	    sql.append("  p.id AS idPaisDepartamentoCiudadResidencia, ");
-	    sql.append("  p.nombre AS nombrePaisDepartamentoCiudadResidencia, ");
-	    sql.append("  u.correoElectronico, ");
-	    sql.append("  u.numeroTelefonoMovil, ");
-	    sql.append("  u.correoElectronicoConfirmado, ");
-	    sql.append("  u.numeroTelefonoMovilConfirmado ");
-	    sql.append("FROM Usuario AS u ");
-	    sql.append("INNER JOIN TipoIdentificacion AS ti ");
-	    sql.append("  ON u.tipoIdentificacion = ti.id ");
-	    sql.append("INNER JOIN Ciudad AS c ");
-	    sql.append("  ON u.ciudadResidencia = c.id ");
-	    sql.append("INNER JOIN Departamento AS d ");
-	    sql.append("  ON c.departamento = d.id ");
-	    sql.append("INNER JOIN Pais AS p ");
-	    sql.append("  ON d.pais = p.id;");
+	    sql.append("  u.\"id\", ");
+	    sql.append("  ti.\"id\" AS \"idTipoIdentificacion\", ");
+	    sql.append("  ti.\"nombre\" AS \"nombreTipoIdentificacion\", ");
+	    sql.append("  u.\"numeroIdentificacion\", ");
+	    sql.append("  u.\"primerNombre\", ");
+	    sql.append("  u.\"segundoNombre\", ");
+	    sql.append("  u.\"primerApellido\", ");
+	    sql.append("  u.\"segundoApellido\", ");
+	    sql.append("  c.\"id\" AS \"idCiudadResidencia\", ");
+	    sql.append("  c.\"nombre\" AS \"nombreCiudadResidencia\", ");
+	    sql.append("  d.\"id\" AS \"idDepartamentoCiudadResidencia\", ");
+	    sql.append("  d.\"nombre\" AS \"nombreDepartamentoCiudadResidencia\", ");
+	    sql.append("  p.\"id\" AS \"idPaisDepartamentoCiudadResidencia\", ");
+	    sql.append("  p.\"nombre\" AS \"nombrePaisDepartamentoCiudadResidencia\", ");
+	    sql.append("  u.\"correoElectronico\", ");
+	    sql.append("  u.\"numeroTelefonoMovil\", ");
+	    sql.append("  u.\"correoElectronicoConfirmado\", ");
+	    sql.append("  u.\"numeroTelefonoMovilConfirmado\" ");
+	    sql.append("FROM \"Usuario\" AS u ");
+	    sql.append("INNER JOIN \"TipoIdentificacion\" AS ti ");
+	    sql.append("  ON u.\"tipoIdentificacion\" = ti.\"id\" ");
+	    sql.append("INNER JOIN \"Ciudad\" AS c ");
+	    sql.append("  ON u.\"ciudadResidencia\" = c.\"id\" ");
+	    sql.append("INNER JOIN \"Departamento\" AS d ");
+	    sql.append("  ON c.\"departamento\" = d.\"id\" ");
+	    sql.append("INNER JOIN \"Pais\" AS p ");
+	    sql.append("  ON d.\"pais\" = p.\"id\";");
+
 
 	    try (var preparedStatement = this.getConnection().prepareStatement(sql.toString())) {
 
@@ -168,34 +169,35 @@ public final class  UserPostgreSqlDAO extends SqlConnection implements UserDAO {
 		var User = new UserEntity();
 		
 		sql.append("SELECT ");
-		sql.append("  u.id, ");
-		sql.append("  ti.id AS idTipoIdentificacion, ");
-		sql.append("  ti.nombre AS nombreTipoIdentificacion, ");
-		sql.append("  u.numeroIdentificacion, ");
-		sql.append("  u.primerNombre, ");
-		sql.append("  u.segundoNombre, ");
-		sql.append("  u.primerApellido, ");
-		sql.append("  u.segundoApellido, ");
-		sql.append("  c.id AS idCiudadResidencia, ");
-		sql.append("  c.nombre AS nombreCiudadResidencia, ");
-		sql.append("  d.id AS idDepartamentoCiudadResidencia, ");
-		sql.append("  d.nombre AS nombreDepartamentoCiudadResidencia, ");
-		sql.append("  p.id AS idPaisDepartamentoCiudadResidencia, ");
-		sql.append("  p.nombre AS nombrePaisDepartamentoCiudadResidencia, ");
-		sql.append("  u.correoElectronico, ");
-		sql.append("  u.numeroTelefonoMovil, ");
-		sql.append("  u.correoElectronicoConfirmado, ");
-		sql.append("  u.numeroTelefonoMovilConfirmado ");
-		sql.append("FROM Usuario AS u ");
-		sql.append("INNER JOIN TipoIdentificacion AS ti ");
-		sql.append("  ON u.tipoIdentificacion = ti.id ");
-		sql.append("INNER JOIN Ciudad AS c ");
-		sql.append("  ON u.ciudadResidencia = c.id ");
-		sql.append("INNER JOIN Departamento AS d ");
-		sql.append("  ON c.departamento = d.id ");
-		sql.append("INNER JOIN Pais AS p ");
-		sql.append("  ON d.pais = p.id; ");
-		sql.append("WHERE u.id = ? ");
+		sql.append("  u.\"id\", ");
+		sql.append("  ti.\"id\" AS \"idTipoIdentificacion\", ");
+		sql.append("  ti.\"nombre\" AS \"nombreTipoIdentificacion\", ");
+		sql.append("  u.\"numeroIdentificacion\", ");
+		sql.append("  u.\"primerNombre\", ");
+		sql.append("  u.\"segundoNombre\", ");
+		sql.append("  u.\"primerApellido\", ");
+		sql.append("  u.\"segundoApellido\", ");
+		sql.append("  c.\"id\" AS \"idCiudadResidencia\", ");
+		sql.append("  c.\"nombre\" AS \"nombreCiudadResidencia\", ");
+		sql.append("  d.\"id\" AS \"idDepartamentoCiudadResidencia\", ");
+		sql.append("  d.\"nombre\" AS \"nombreDepartamentoCiudadResidencia\", ");
+		sql.append("  p.\"id\" AS \"idPaisDepartamentoCiudadResidencia\", ");
+		sql.append("  p.\"nombre\" AS \"nombrePaisDepartamentoCiudadResidencia\", ");
+		sql.append("  u.\"correoElectronico\", ");
+		sql.append("  u.\"numeroTelefonoMovil\", ");
+		sql.append("  u.\"correoElectronicoConfirmado\", ");
+		sql.append("  u.\"numeroTelefonoMovilConfirmado\" ");
+		sql.append("FROM \"Usuario\" AS u ");
+		sql.append("INNER JOIN \"TipoIdentificacion\" AS ti ");
+		sql.append("  ON u.\"tipoIdentificacion\" = ti.\"id\" ");
+		sql.append("INNER JOIN \"Ciudad\" AS c ");
+		sql.append("  ON u.\"ciudadResidencia\" = c.\"id\" ");
+		sql.append("INNER JOIN \"Departamento\" AS d ");
+		sql.append("  ON c.\"departamento\" = d.\"id\" ");
+		sql.append("INNER JOIN \"Pais\" AS p ");
+		sql.append("  ON d.\"pais\" = p.\"id\" ");
+		sql.append("WHERE u.\"id\" = ? ");
+		
 		
 		try (var preparedStatement = this.getConnection().prepareStatement(sql.toString())) {
 			
@@ -260,19 +262,19 @@ public final class  UserPostgreSqlDAO extends SqlConnection implements UserDAO {
 		SqlConnectionHelper.ensureTransactionIsStarted(getConnection());
 		
 		final var sql= new StringBuilder();
-		sql.append("UPDATE Usuario ");
-		sql.append("SET tipoIdentificacion=?");
-		sql.append("primerNombre=?");
-		sql.append("segundoNombre=?");
-		sql.append("primerApellido=?");
-		sql.append("segundoApellido=?");
-		sql.append("ciudadResidencia=?");
-		sql.append("correoElectronico=?");
-		sql.append("numeroTelefonoMovil=?");
-		sql.append("correoElectronicoConfirmado=?");
-		sql.append("numeroTelefonoMovilConfirmado=?");
-		sql.append("WHERE id=?");
-		
+		sql.append("UPDATE \"Usuario\" SET ");
+		sql.append("  \"tipoIdentificacion\" = ?, ");
+		sql.append("  \"primerNombre\" = ?, ");
+		sql.append("  \"segundoNombre\" = ?, ");
+		sql.append("  \"primerApellido\" = ?, ");
+		sql.append("  \"segundoApellido\" = ?, ");
+		sql.append("  \"ciudadResidencia\" = ?, ");
+		sql.append("  \"correoElectronico\" = ?, ");
+		sql.append("  \"numeroTelefonoMovil\" = ?, ");
+		sql.append("  \"correoElectronicoConfirmado\" = ?, ");
+		sql.append("  \"numeroTelefonoMovilConfirmado\" = ? ");
+		sql.append("WHERE \"id\" = ? ");
+
 	try (var preparedStatement = this.getConnection().prepareStatement(sql.toString())) {
 				
 		preparedStatement.setObject(1, entity.getIdentificationType().getId());

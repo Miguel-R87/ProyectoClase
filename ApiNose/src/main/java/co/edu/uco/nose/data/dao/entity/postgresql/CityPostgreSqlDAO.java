@@ -27,17 +27,17 @@ public final class CityPostgreSqlDAO extends SqlConnection implements CityDAO {
         final var cities = new ArrayList<CityEntity>();
 
         sql.append("SELECT ");
-        sql.append("  c.id AS idCiudad, ");
-        sql.append("  c.nombre AS nombreCiudad, ");
-        sql.append("  d.id AS idDepartamento, ");
-        sql.append("  d.nombre AS nombreDepartamento, ");
-        sql.append("  p.id AS idPais, ");
-        sql.append("  p.nombre AS nombrePais ");
+        sql.append("  c.\"id\" AS \"idCiudad\", ");
+        sql.append("  c.\"nombre\" AS \"nombreCiudad\", ");
+        sql.append("  d.\"id\" AS \"idDepartamento\", ");
+        sql.append("  d.\"nombre\" AS \"nombreDepartamento\", ");
+        sql.append("  p.\"id\" AS \"idPais\", ");
+        sql.append("  p.\"nombre\" AS \"nombrePais\" ");
         sql.append("FROM \"Ciudad\" AS c ");
         sql.append("INNER JOIN \"Departamento\" AS d ");
-        sql.append("  ON c.departamento = d.id ");
+        sql.append("  ON c.\"departamento\" = d.\"id\" ");
         sql.append("INNER JOIN \"Pais\" AS p ");
-        sql.append("  ON d.pais = p.id;");
+        sql.append("  ON d.\"pais\" = p.\"id\" ");
 
         try (var preparedStatement = this.getConnection().prepareStatement(sql.toString())) {
             try (var resultSet = preparedStatement.executeQuery()) {
@@ -60,13 +60,13 @@ public final class CityPostgreSqlDAO extends SqlConnection implements CityDAO {
                 }
             }
         } catch (final SQLException exception) {
-            var userMessage = MessagesEnum.USER_ERROR_SQL_EXCEPTION_FINDING_CITY.getContent();
-            var technicalMessage = MessagesEnum.TECHNICAL_ERROR_SQL_EXCEPTION_FINDING_CITY.getContent()
+            var userMessage = MessagesEnum.USER_ERROR_SEARCH_CITY_FAILED_SQL_EXCEPTION.getContent();
+            var technicalMessage = MessagesEnum.TECHNICAL_ERROR_CITY_USER_FAILED_SQL_EXCEPTION.getContent()
                     + exception.getMessage();
             throw NoseException.create(exception, userMessage, technicalMessage);
         } catch (final Exception exception) {
-            var userMessage = MessagesEnum.USER_ERROR_UNEXPECTED_EXCEPTION_FINDING_CITY.getContent();
-            var technicalMessage = MessagesEnum.TECHNICAL_ERROR_UNEXPECTED_EXCEPTION_FINDING_CITY.getContent()
+            var userMessage = MessagesEnum.USER_ERROR_SEARCH_CITY_FAILED.getContent();
+            var technicalMessage = MessagesEnum.TECHNICAL_ERROR_CITY_USER_FAILED.getContent()
                     + exception.getMessage();
             throw NoseException.create(exception, userMessage, technicalMessage);
         }
@@ -80,18 +80,19 @@ public final class CityPostgreSqlDAO extends SqlConnection implements CityDAO {
         final var city = new CityEntity();
 
         sql.append("SELECT ");
-        sql.append("  c.id AS idCiudad, ");
-        sql.append("  c.nombre AS nombreCiudad, ");
-        sql.append("  d.id AS idDepartamento, ");
-        sql.append("  d.nombre AS nombreDepartamento, ");
-        sql.append("  p.id AS idPais, ");
-        sql.append("  p.nombre AS nombrePais ");
+        sql.append("  c.\"id\" AS \"idCiudad\", ");
+        sql.append("  c.\"nombre\" AS \"nombreCiudad\", ");
+        sql.append("  d.\"id\" AS \"idDepartamento\", ");
+        sql.append("  d.\"nombre\" AS \"nombreDepartamento\", ");
+        sql.append("  p.\"id\" AS \"idPais\", ");
+        sql.append("  p.\"nombre\" AS \"nombrePais\" ");
         sql.append("FROM \"Ciudad\" AS c ");
         sql.append("INNER JOIN \"Departamento\" AS d ");
-        sql.append("  ON c.departamento = d.id ");
+        sql.append("  ON c.\"departamento\" = d.\"id\" ");
         sql.append("INNER JOIN \"Pais\" AS p ");
-        sql.append("  ON d.pais = p.id ");
-        sql.append("WHERE c.id = ?;");
+        sql.append("  ON d.\"pais\" = p.\"id\" ");
+        sql.append("WHERE c.\"id\" = ? ");
+
 
         try (var preparedStatement = this.getConnection().prepareStatement(sql.toString())) {
             preparedStatement.setObject(1, id);
@@ -113,13 +114,13 @@ public final class CityPostgreSqlDAO extends SqlConnection implements CityDAO {
                 }
             }
         } catch (final SQLException exception) {
-            var userMessage = MessagesEnum.USER_ERROR_SQL_EXCEPTION_FINDING_CITY.getContent();
-            var technicalMessage = MessagesEnum.TECHNICAL_ERROR_SQL_EXCEPTION_FINDING_CITY.getContent()
+            var userMessage = MessagesEnum.USER_ERROR_SEARCH_CITY_FAILED_SQL_EXCEPTION.getContent();
+            var technicalMessage = MessagesEnum.TECHNICAL_ERROR_CITY_USER_FAILED_SQL_EXCEPTION.getContent()
                     + exception.getMessage();
             throw NoseException.create(exception, userMessage, technicalMessage);
         } catch (final Exception exception) {
-            var userMessage = MessagesEnum.USER_ERROR_UNEXPECTED_EXCEPTION_FINDING_CITY.getContent();
-            var technicalMessage = MessagesEnum.TECHNICAL_ERROR_UNEXPECTED_EXCEPTION_FINDING_CITY.getContent()
+            var userMessage = MessagesEnum.USER_ERROR_SEARCH_CITY_FAILED.getContent();
+            var technicalMessage = MessagesEnum.TECHNICAL_ERROR_CITY_USER_FAILED.getContent()
                     + exception.getMessage();
             throw NoseException.create(exception, userMessage, technicalMessage);
         }

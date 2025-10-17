@@ -21,8 +21,16 @@ public final class StateDomain extends Domain {
 		setName(name);
 		setCountry(country);
 	}	
+	public StateDomain(final UUID id) {
+		super(id);
+		setName(TextHelper.getDefault());
+		setCountry(CountryDomain.getDefaultValue());
+	}	
 	static StateDomain getDefaultValue() {
         return new StateDomain();
+    }
+	static StateDomain getDefaultValue(final StateDomain state) {
+        return ObjectHelper.getDefault(state, StateDomain.getDefaultValue());
     }
 
 	public void setName(final String name) {
@@ -32,5 +40,13 @@ public final class StateDomain extends Domain {
 		this.country=ObjectHelper.getDefault(country,CountryDomain.getDefaultValue());
 	}
 	
-
+public String getName() {
+return name;
 }
+
+public CountryDomain getCountry() {
+	return country;
+}
+}
+
+

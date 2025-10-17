@@ -13,20 +13,36 @@ public final class CityEntity extends Entity{
 	
 	public CityEntity() {
 		super(UUIDHelper.getUUIDHelper().getDefault());
-		setName(TextHelper.getDefault());  
+		setName(TextHelper.getDefault()); 
+		setState(StateEntity.getDefaultValue());
 	}
 	public CityEntity(final UUID id,final String name,final StateEntity state) {
 		super(id);
 		setName(name);	
 		setState(state);	
 	}
+	public CityEntity(final UUID id) {
+		super(id);
+		setName(name);	
+		setState(state);	
+	}
+	
+	
 	
 	static CityEntity  getDefaultValue() {
 		return new CityEntity(); 
 
 }
+	static CityEntity  getDefaultValue(final CityEntity city) {
+	return ObjectHelper.getDefault(city, CityEntity.getDefaultValue());
+
+}
 	public String getName() {
 		return name;
+	}
+	
+	public  StateEntity getState() {
+		return state;
 	}
 
 		

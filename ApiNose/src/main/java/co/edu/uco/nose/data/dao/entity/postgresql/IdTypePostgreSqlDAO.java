@@ -7,6 +7,7 @@ import co.edu.uco.nose.data.dao.entity.IdTypeDAO;
 import co.edu.uco.nose.data.dao.entity.SqlConnection;
 import co.edu.uco.nose.entity.IdTypeEntity;
 import java.util.UUID;
+import java.util.ArrayList;
 import java.util.List;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -16,11 +17,41 @@ public final class IdTypePostgreSqlDAO extends SqlConnection implements IdTypeDA
 	public IdTypePostgreSqlDAO(Connection connection) {
 		super(connection);
 	}
-	@Override
-	public List<IdTypeEntity> findAll() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+@Override
+public List<IdTypeEntity> findAll() {
+    final var idTypes = new ArrayList<IdTypeEntity>();
+    final var sql = new StringBuilder();
+
+    sql.append("SELECT ");
+    sql.append("  t.\"id\", ");
+    sql.append("  t.\"nombre\" ");
+    sql.append("FROM \"TipoIdentificacion\" AS t ");
+
+    try (var preparedStatement = this.getConnection().prepareStatement(sql.toString())) {
+
+        try (var resultSet = preparedStatement.executeQuery()) {
+            while (resultSet.next()) {
+                var idType = new IdTypeEntity();
+                idType.setId(UUIDHelper.getUUIDHelper().getFromString(resultSet.getString("id")));
+                idType.setName(resultSet.getString("nombre"));
+                idTypes.add(idType);
+            }
+        }
+
+    } catch (final SQLException exception) {
+        var userMessage = MessagesEnum.USER_ERROR_SEARCH_ID_FAILED_SQL_EXCEPTION.getContent();
+        var technicalMessage = MessagesEnum.TECHNICAL_ERROR_ID_USER_FAILED_SQL_EXCEPTION.getContent() + exception.getMessage();
+        throw NoseException.create(exception, userMessage, technicalMessage);
+    } catch (final Exception exception) {
+        var userMessage = MessagesEnum.USER_ERROR_SEARCH_ID_FAILED.getContent();
+        var technicalMessage = MessagesEnum.TECHNICAL_ERROR_ID_USER_FAILED.getContent() + exception.getMessage();
+        throw NoseException.create(exception, userMessage, technicalMessage);
+    }
+
+    return idTypes;
+}
+
+	
 
 	@Override
 	public List<IdTypeEntity> findByFilter(IdTypeEntity filterEntity) {
@@ -32,12 +63,12 @@ public final class IdTypePostgreSqlDAO extends SqlConnection implements IdTypeDA
 	public IdTypeEntity findById(UUID id) {
 		final var IdTypeEntity = new IdTypeEntity();
 		final var sql = new StringBuilder();
-		
 		sql.append("SELECT ");
-		sql.append("  t.id, ");
-		sql.append("  t.nombre, ");
-		sql.append("  from \"Tipolidentificacion\" as t ");
-		sql.append("  where t.id = ? ");
+		sql.append("  t.\"id\", ");
+		sql.append("  t.\"nombre\" ");
+		sql.append("FROM \"TipoIdentificacion\" AS t ");
+		sql.append("WHERE t.\"id\" = ? ");
+
 		
 		try (var preparedStatement = this.getConnection().prepareStatement(sql.toString())) {
 			
@@ -55,12 +86,12 @@ public final class IdTypePostgreSqlDAO extends SqlConnection implements IdTypeDA
 			}
 
 		} catch (final SQLException exception) {
-			var userMessage = MessagesEnum.USER_ERROR_SQL_EXCEPTION_FINDING_IDENTIFICATIONTYPE.getContent();
-			var technicalMessage = MessagesEnum.TECHNICAL_ERROR_SQL_EXCEPTION_FINDING_IDENTIFICATIONTYPE + exception.getMessage();
+			var userMessage = MessagesEnum.USER_ERROR_SEARCH_ID_FAILED_SQL_EXCEPTION.getContent();
+			var technicalMessage = MessagesEnum.TECHNICAL_ERROR_ID_USER_FAILED_SQL_EXCEPTION.getContent() + exception.getMessage();
 			throw NoseException.create(exception, userMessage, technicalMessage);
 		}catch(final Exception exception) {
-			var userMessage = MessagesEnum.USER_ERROR_UNEXPECTED_EXCEPTION_FINDING_IDENTIFICATIONTYPE.getContent();
-			var technicalMessage = MessagesEnum.TECHNICAL_ERROR_UNEXPECTED_EXCEPTION_FINDING_IDENTFICATIONTYPE.getContent() + exception.getMessage();
+			var userMessage = MessagesEnum.USER_ERROR_SEARCH_ID_FAILED.getContent();
+			var technicalMessage = MessagesEnum.TECHNICAL_ERROR_ID_USER_FAILED.getContent() + exception.getMessage();
 			throw NoseException.create(exception, userMessage, technicalMessage);
 		}
 		

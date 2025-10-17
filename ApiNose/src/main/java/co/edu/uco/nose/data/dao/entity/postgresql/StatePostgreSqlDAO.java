@@ -27,13 +27,14 @@ public final class   StatePostgreSqlDAO extends SqlConnection implements StateDA
 		
 		var state=new StateEntity();
 		sql.append("SELECT ");
-	    sql.append("  d.id AS idDepartamento, ");
-	    sql.append("  d.nombre AS nombreDepartamento, ");
-	    sql.append("  p.id AS idPais, ");
-	    sql.append("  p.nombre AS nombrePais ");
-	    sql.append("FROM \"Departamento\" AS d ");
-	    sql.append("INNER JOIN \"Pais\" AS p ");
-	    sql.append("  ON d.pais = p.id ");
+		sql.append("  d.\"id\" AS \"idDepartamento\", ");
+		sql.append("  d.\"nombre\" AS \"nombreDepartamento\", ");
+		sql.append("  p.\"id\" AS \"idPais\", ");
+		sql.append("  p.\"nombre\" AS \"nombrePais\" ");
+		sql.append("FROM \"Departamento\" AS d ");
+		sql.append("INNER JOIN \"Pais\" AS p ");
+		sql.append("  ON d.\"pais\" = p.\"id\" ");
+
 	    
 	    try (var preparedStatement = this.getConnection().prepareStatement(sql.toString())) {
 
@@ -86,14 +87,15 @@ public final class   StatePostgreSqlDAO extends SqlConnection implements StateDA
 		    var state = new StateEntity();
 
 		    sql.append("SELECT ");
-		    sql.append("  d.id AS idDepartamento, ");
-		    sql.append("  d.nombre AS nombreDepartamento, ");
-		    sql.append("  p.id AS idPais, ");
-		    sql.append("  p.nombre AS nombrePais ");
+		    sql.append("  d.\"id\" AS \"idDepartamento\", ");
+		    sql.append("  d.\"nombre\" AS \"nombreDepartamento\", ");
+		    sql.append("  p.\"id\" AS \"idPais\", ");
+		    sql.append("  p.\"nombre\" AS \"nombrePais\" ");
 		    sql.append("FROM \"Departamento\" AS d ");
 		    sql.append("INNER JOIN \"Pais\" AS p ");
-		    sql.append("  ON d.pais = p.id ");
-		    sql.append("WHERE d.id = ?; ");
+		    sql.append("  ON d.\"pais\" = p.\"id\" ");
+		    sql.append("WHERE d.\"id\" = ? ");
+
 
 		    try (var preparedStatement = this.getConnection().prepareStatement(sql.toString())) {
 

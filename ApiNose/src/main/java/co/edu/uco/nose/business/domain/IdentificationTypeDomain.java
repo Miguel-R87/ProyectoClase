@@ -30,8 +30,8 @@ public final class IdentificationTypeDomain extends Domain {
 		return new IdentificationTypeDomain();
 	}
 	
-	static IdentificationTypeDomain getDefaultValue(final IdentificationTypeDomain identifiactionType) {
-		return ObjectHelper.getDefault(identifiactionType, getDefaultValue());
+	static IdentificationTypeDomain getDefaultValue(final IdentificationTypeDomain identificacionType) {
+		return ObjectHelper.getDefault(identificacionType, getDefaultValue());
 	}
 
 	public String getName() {

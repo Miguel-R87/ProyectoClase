@@ -15,6 +15,7 @@ public final class CityDto extends Dto{
 	public CityDto() {
 		super(UUIDHelper.getUUIDHelper().getDefault());
 		setName(TextHelper.getDefault());  
+		setState(StateDto.getDefaultValue());
 	}
 	public CityDto(final UUID id,final String name,final StateDto state) {
 		super(id);
@@ -22,14 +23,31 @@ public final class CityDto extends Dto{
 		setState(state);	
 		
 	}
+	public CityDto(final UUID id) {
+		super(id);
+		setName(TextHelper.getDefault());  
+		setState(StateDto.getDefaultValue());
+		
+	;	
+		
+	}
+	
 	
 	static CityDto  getDefaultValue() {
 		return new CityDto(); 
 
 }
+	static CityDto  getDefaultValue(final CityDto  city) {
+		return ObjectHelper.getDefault(city, CityDto.getDefaultValue());
+
+}
 	public String getName() {
 		return name;
 	}
+	
+public StateDto getState() {
+	return state;
+}
 
 		
 	public void setName(final String name) {

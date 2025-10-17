@@ -21,6 +21,11 @@ public final class StateDto extends Dto {
 		setName(name);
 		setCountry(country);
 	}	
+	public StateDto(final UUID id) {
+		super(id);
+		setName(TextHelper.getDefault());
+		setCountry(CountryDto.getDefaultValue());
+	}	
 	static StateDto getDefaultValue() {
         return new StateDto();
     }

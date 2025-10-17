@@ -3,6 +3,7 @@ package co.edu.uco.nose.entity;
 
 import java.util.UUID;
 
+import co.edu.uco.nose.crosscuting.helper.ObjectHelper;
 import co.edu.uco.nose.crosscuting.helper.TextHelper;
 import co.edu.uco.nose.crosscuting.helper.UUIDHelper;
 
@@ -21,6 +22,11 @@ public final class CountryEntity extends Entity {
 		super(id);
 		setName(name);	
 	}
+	public CountryEntity(final UUID id) {
+		super(id);
+		setName(TextHelper.getDefault());
+			
+	}
 
 	public String getName() {
 		return name;
@@ -32,6 +38,11 @@ public final class CountryEntity extends Entity {
 	
 	static CountryEntity  getDefaultValue() {
 		return new CountryEntity();
+		}
+
+	static CountryEntity  getDefaultValue(final CountryEntity country) {
+		return ObjectHelper.getDefault(country, CountryEntity.getDefaultValue());
 		};
+
 
 }

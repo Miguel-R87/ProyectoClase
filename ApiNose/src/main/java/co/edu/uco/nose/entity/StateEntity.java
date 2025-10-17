@@ -21,8 +21,17 @@ public final class StateEntity extends Entity {
 		setName(name);
 		setCountry(country);
 	}	
+	public StateEntity(final UUID id) {
+		super(id);
+		setName(TextHelper.getDefault());
+		setCountry(CountryEntity.getDefaultValue());
+		
+	}
 	static StateEntity getDefaultValue() {
         return new StateEntity();
+    }
+	static StateEntity getDefaultValue(StateEntity state) {
+        return ObjectHelper.getDefault(state, StateEntity.getDefaultValue());
     }
 
 	public void setName(final String name) {
@@ -31,6 +40,13 @@ public final class StateEntity extends Entity {
 	public void setCountry(final CountryEntity country) {
 		this.country=ObjectHelper.getDefault(country,CountryEntity.getDefaultValue());
 	}
+	public String getName() {
+	return name;
+	}
+	public CountryEntity getCountry() {
+		return country;
+	}
+	
 	
 
 }

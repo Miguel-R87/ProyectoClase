@@ -59,19 +59,35 @@ public enum MessagesEnum {
     // consultas
     USER_ERROR_SEARCH_STATE_FAILED_SQL_EXCEPTION("Se ha presentado un problema tratando de consultar la información de un departamento"," por favor intente de nuevo si el  problema persiste por favor contacte al administrador del sistema"),
     TECHNICAL_ERROR_STATE_USER_FAILED_SQL_EXCEPTION("Se ha presentado un problema inesperado al tratar de ejecutar el proceso de consulta del departamento","se ha presentado un problema al intentar realizar la consulta de un departamento"),
-    USER_ERROR_SEARCH_STATE_FAILED("Se ha presentado un problema inesperado tratando de consultar la información de un usuario por favor intente de nuevo","Por favor intente de nuevo Si el problema persiste por favor contacte al administrador del sistema"),
+    USER_ERROR_SEARCH_STATE_FAILED("Se ha presentado un problema inesperado tratando de consultar la información de un departamrento por favor intente de nuevo","Por favor intente de nuevo Si el problema persiste por favor contacte al administrador del sistema"),
     TECHNICAL_ERROR_STATE_USER_FAILED( "Se ha presentado un problema inesperado al tratar de ejecutar el proceso de consulta del departamento ","se ha presentado un problema al intentar realizar la consulta de un departamento no es un SQL Exception el problema"),
 
+	//MENSAJES PARA ERRORES TipoID
+
+    //MENSAJES EXCEPCIONES IDTYPE
+    // consultas
+    USER_ERROR_SEARCH_ID_FAILED_SQL_EXCEPTION("Se ha presentado un problema tratando de consultar la información de un tipo de identificador"," por favor intente de nuevo si el  problema persiste por favor contacte al administrador del sistema"),
+    TECHNICAL_ERROR_ID_USER_FAILED_SQL_EXCEPTION("Se ha presentado un problema inesperado al tratar de ejecutar el proceso de consulta del tipo de identificador","se ha presentado un problema al intentar realizar la consulta de un tipo de identificador"),
+    USER_ERROR_SEARCH_ID_FAILED("Se ha presentado un problema inesperado tratando de consultar la información de un tipo de identificador por favor intente de nuevo","Por favor intente de nuevo Si el problema persiste por favor contacte al administrador del sistema"),
+    TECHNICAL_ERROR_ID_USER_FAILED( "Se ha presentado un problema inesperado al tratar de ejecutar el proceso de consulta de un tipo de identificador ","se ha presentado un problema al intentar realizar la consulta de un departamento no es un SQL Exception el problema"),
+
 	
-	
-	
+  //MENSAJES PARA ERRORES CIUDAD
+
+    // consultas
+    USER_ERROR_SEARCH_CITY_FAILED_SQL_EXCEPTION("Se ha presentado un problema tratando de consultar la información de una ciudad"," por favor intente de nuevo si el  problema persiste por favor contacte al administrador del sistema"),
+    TECHNICAL_ERROR_CITY_USER_FAILED_SQL_EXCEPTION("Se ha presentado un problema inesperado al tratar de ejecutar el proceso de consulta de una ciudad","se ha presentado un problema al intentar realizar la consulta de una ciudad"),
+    USER_ERROR_SEARCH_CITY_FAILED("Se ha presentado un problema inesperado tratando de consultar la información de una ciudad por favor intente de nuevo","Por favor intente de nuevo Si el problema persiste por favor contacte al administrador del sistema"),
+    TECHNICAL_ERROR_CITY_USER_FAILED( "Se ha presentado un problema inesperado al tratar de ejecutar el proceso de consulta de una ciudad ","se ha presentado un problema al intentar realizar la consulta de una ciudad no es un SQL Exception el problema"),
+
 	
 	
 	USER_ERROR_TRANSACTION_IS_NOT_STARTED("Transacción no iniciada", "No se ha iniciado la transacción contra la fuente de información deseada. Por favor intente de nuevo."),
 	TECHNICAL_ERROR_TRANSACTION_IS_NOT_STARTED( "Transacción no iniciada", "La conexión indica que el modo de auto-commit está activado, por lo tanto no se ha iniciado la transacción."),
 	TECHNICAL_ERROR_SQL_CONNECTION_SQL_EXCEPTION_VALIDATING_TRANSACTION_IS_NOT_STARTED("Error inesperado validando si el autocommit contra la base de datos estaba desactivado", "Se presentó un error de tipo SQLException al validar si el autocommit habia sido desactivado ."),
 	USER_ERROR_SQL_CONNECTION_UNEXPECTED_ERROR_VALIDATING_TRANSACTION_IS_NOT_STARTED("Error inesperado validando el manejo de operaciones contra la fuente de datos", "Ocurrió un problema inesperado tratando de validar el estado de manejo de operaciones"),
-	TECHNICAL_ERROR_SQL_CONNECTION_UNEXPECTED_ERROR_VALIDATING_TRANSACTION_IS_NOT_STARTED("Error inesperado validando si el autocommit contra la base de datos estaba desactivado", "Se presentó un problema inesperado al validar si el autocommit habia sido desactivado. No fue una SQLException, sino un error no controlado en el proceso de validación."), ;
+	TECHNICAL_ERROR_SQL_CONNECTION_UNEXPECTED_ERROR_VALIDATING_TRANSACTION_IS_NOT_STARTED("Error inesperado validando si el autocommit contra la base de datos estaba desactivado", "Se presentó un problema inesperado al validar si el autocommit habia sido desactivado. No fue una SQLException, sino un error no controlado en el proceso de validación.");
+
 	
 private String title;
 private String content;

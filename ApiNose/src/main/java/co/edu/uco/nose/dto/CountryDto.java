@@ -3,6 +3,7 @@ package co.edu.uco.nose.dto;
 
 import java.util.UUID;
 
+import co.edu.uco.nose.crosscuting.helper.ObjectHelper;
 import co.edu.uco.nose.crosscuting.helper.TextHelper;
 import co.edu.uco.nose.crosscuting.helper.UUIDHelper;
 
@@ -21,6 +22,11 @@ public final class CountryDto extends Dto {
 		super(id);
 		this.name = name;
 	}
+	public CountryDto(final UUID id) {
+		super(id);
+		setName(TextHelper.getDefault());
+
+	}
 
 	public String getName() {
 		return name;
@@ -32,6 +38,9 @@ public final class CountryDto extends Dto {
 	
 	static CountryDto  getDefaultValue() {
 		return new CountryDto();
+		}
+	static CountryDto  getDefaultValue(final CountryDto country) {
+		return ObjectHelper.getDefault(country, CountryDto.getDefaultValue());
 		};
 
 }
