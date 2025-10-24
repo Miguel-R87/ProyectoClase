@@ -7,9 +7,9 @@ import co.edu.uco.nose.crosscuting.helper.ObjectHelper;
 import co.edu.uco.nose.crosscuting.helper.TextHelper;
 import co.edu.uco.nose.crosscuting.helper.UUIDHelper;
 
-public class UserDto extends Dto {
-	 
-	private IdentificationTypeDto identificationType;
+public class UserDto  {
+	 private UUID id;
+	private IdTypeDto identificationType;
 	private String identificationNumber;
 	private String firstName;
 	private String middleName;
@@ -22,8 +22,8 @@ public class UserDto extends Dto {
 	private boolean cellPhoneNumberConfirmed;
 	
 	public UserDto() {
-		super(UUIDHelper.getUUIDHelper().getDefault());
-		setIdentificationType(IdentificationTypeDto.getDefaultValue());
+		setId(UUIDHelper.getUUIDHelper().getDefault());
+		setIdentificationType(IdTypeDto.getDefaultValue());
 		setIdentificationNumber(TextHelper.getDefault());;
 		setFirstName(TextHelper.getDefault());
 		setMiddleName(TextHelper.getDefault());
@@ -37,8 +37,8 @@ public class UserDto extends Dto {
 	}
 	
 	public UserDto(final UUID id) {
-		super(id);
-		setIdentificationType(IdentificationTypeDto.getDefaultValue());
+		setId(id);
+		setIdentificationType(IdTypeDto.getDefaultValue());
 		setIdentificationNumber(TextHelper.getDefault());
 		setFirstName(TextHelper.getDefault());
 		setMiddleName(TextHelper.getDefault());
@@ -52,21 +52,21 @@ public class UserDto extends Dto {
 	}
 	
 	
-	public UserDto(final UUID id, final IdentificationTypeDto identificationType, final String identificationNumber, final String firstName,
+	public UserDto(final UUID id, final IdTypeDto identificationType, final String identificationNumber, final String firstName,
 			final String middleName, final String lastName, final String secondLastName, final CityDto residenceCity, final String email,
 			final String cellPhoneNumber, final boolean emailConfirmed, final boolean cellPhoneNumberConfirmed) {
-		super(id);
-		this.identificationType = identificationType;
-		this.identificationNumber = identificationNumber;
-		this.firstName = firstName;
-		this.middleName = middleName;
-		this.lastName = lastName;
-		this.secondLastName = secondLastName;
-		this.residenceCity = residenceCity;
-		this.email = email;
-		this.cellPhoneNumber = cellPhoneNumber;
-		this.emailConfirmed = emailConfirmed;
-		this.cellPhoneNumberConfirmed = cellPhoneNumberConfirmed;
+		setId(id);
+		setIdentificationType(identificationType);
+		setIdentificationNumber(identificationNumber);
+		setFirstName(firstName);
+		setMiddleName(middleName);
+		setLastName(lastName);
+		setSecondLastName(secondLastName);
+		setResidenceCity(residenceCity);
+		setEmail(email);
+		setCellPhoneNumber(cellPhoneNumber);
+		setCellPhoneNumberConfirmed(cellPhoneNumberConfirmed);
+		setEmailConfirmed(emailConfirmed);
 	}
 	
 	static UserDto getDefaultValue() {
@@ -77,12 +77,12 @@ public class UserDto extends Dto {
 		return ObjectHelper.getDefault(user, getDefaultValue());
 	}
 
-	public IdentificationTypeDto getIdentificationType() {
+	public IdTypeDto getIdentificationType() {
 		return identificationType;
 	}
 	
-	public void setIdentificationType(final IdentificationTypeDto identificationType) {
-		this.identificationType = ObjectHelper.getDefault(identificationType, IdentificationTypeDto.getDefaultValue());
+	public void setIdentificationType(final IdTypeDto identificationType) {
+		this.identificationType = ObjectHelper.getDefault(identificationType, IdTypeDto.getDefaultValue());
 	}
 	
 	public String getIdentificationNumber() {
@@ -163,6 +163,13 @@ public class UserDto extends Dto {
 	
 	public void setCellPhoneNumberConfirmed(final boolean cellPhoneNumberConfirmed) {
 		this.cellPhoneNumberConfirmed = BooleanHelper.getDefault(cellPhoneNumberConfirmed);
+	}
+	public UUID getId() {
+		return id;
+	}
+
+	public void setId(final UUID id) {
+		this.id = UUIDHelper.getUUIDHelper().getDefault(id);
 	}
 	
 	

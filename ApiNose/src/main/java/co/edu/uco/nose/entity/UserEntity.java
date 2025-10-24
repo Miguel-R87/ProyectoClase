@@ -7,8 +7,8 @@ import co.edu.uco.nose.crosscuting.helper.ObjectHelper;
 import co.edu.uco.nose.crosscuting.helper.TextHelper;
 import co.edu.uco.nose.crosscuting.helper.UUIDHelper;
 
-public final class UserEntity extends Entity {
-	 
+public final class UserEntity  {
+    private UUID id;
 	private IdTypeEntity identificationType;
 	private String identificationNumber;
 	private String firstName;
@@ -22,8 +22,8 @@ public final class UserEntity extends Entity {
 	private boolean cellPhoneNumberConfirmed;
 	
 	public UserEntity() {
-		super(UUIDHelper.getUUIDHelper().getDefault());
-		setIdentificationType(IdTypeEntity.getDefaultValue());
+		setId(UUIDHelper.getUUIDHelper().getDefault());
+		setIdType(IdTypeEntity.getDefaultValue());
 		setIdentificationNumber(TextHelper.getDefault());;
 		setFirstName(TextHelper.getDefault());
 		setMiddleName(TextHelper.getDefault());
@@ -37,8 +37,8 @@ public final class UserEntity extends Entity {
 	}
 	
 	public UserEntity(final UUID id) {
-		super(id);
-		setIdentificationType(IdTypeEntity.getDefaultValue());
+		setId(id);
+		setIdType(IdTypeEntity.getDefaultValue());
 		setIdentificationNumber(TextHelper.getDefault());
 		setFirstName(TextHelper.getDefault());
 		setMiddleName(TextHelper.getDefault());
@@ -55,18 +55,19 @@ public final class UserEntity extends Entity {
 	public UserEntity(final UUID id, final IdTypeEntity identificationType, final String identificationNumber, final String firstName,
 			final String middleName, final String lastName, final String secondLastName, final CityEntity residenceCity, final String email,
 			final String cellPhoneNumber, final boolean emailConfirmed, final boolean cellPhoneNumberConfirmed) {
-		super(id);
-		this.identificationType = identificationType;
-		this.identificationNumber = identificationNumber;
-		this.firstName = firstName;
-		this.middleName = middleName;
-		this.lastName = lastName;
-		this.secondLastName = secondLastName;
-		this.residenceCity = residenceCity;
-		this.email = email;
-		this.cellPhoneNumber = cellPhoneNumber;
-		this.emailConfirmed = emailConfirmed;
-		this.cellPhoneNumberConfirmed = cellPhoneNumberConfirmed;
+		setId(id);
+		setIdType(identificationType);
+		setIdentificationNumber(identificationNumber);
+		setFirstName(firstName);
+		setMiddleName(middleName);
+		setLastName(lastName);
+		setSecondLastName(secondLastName);
+		setResidenceCity(residenceCity);
+		setEmail(email);
+		setCellPhoneNumber(cellPhoneNumber);
+		setCellPhoneNumberConfirmed(cellPhoneNumberConfirmed);
+		setEmailConfirmed(emailConfirmed);
+		
 	}
 	
 	static UserEntity getDefaultValue() {
@@ -81,7 +82,7 @@ public final class UserEntity extends Entity {
 		return identificationType;
 	}
 	
-	public void setIdentificationType(final IdTypeEntity identificationType) {
+	public void setIdType(final IdTypeEntity identificationType) {
 		this.identificationType = ObjectHelper.getDefault(identificationType, IdTypeEntity.getDefaultValue());
 	}
 	
@@ -164,6 +165,15 @@ public final class UserEntity extends Entity {
 	public void setCellPhoneNumberConfirmed(final boolean cellPhoneNumberConfirmed) {
 		this.cellPhoneNumberConfirmed = BooleanHelper.getDefault(cellPhoneNumberConfirmed);
 	}
+	public UUID getId() {
+		return id;
+	}
+
+	public void setId(final UUID id) {
+		this.id = UUIDHelper.getUUIDHelper().getDefault(id);
+	}
+	
+	
 	
 	
 }

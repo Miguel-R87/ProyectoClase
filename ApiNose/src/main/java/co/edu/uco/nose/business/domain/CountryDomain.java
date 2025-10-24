@@ -13,7 +13,7 @@ public final class CountryDomain extends Domain {
 	private String name;
 
 	
-	public CountryDomain() {
+	protected CountryDomain() {
 		super(UUIDHelper.getUUIDHelper().getDefault());
 		setName(TextHelper.getDefault());
 	}

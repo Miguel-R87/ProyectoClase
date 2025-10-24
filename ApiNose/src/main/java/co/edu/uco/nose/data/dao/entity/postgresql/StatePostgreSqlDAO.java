@@ -81,58 +81,12 @@ public final class   StatePostgreSqlDAO extends SqlConnection implements StateDA
 
 	@Override
 		public StateEntity findById(final UUID id) {
+return findByFilter(new StateEntity(id)).stream().findFirst().orElse(new StateEntity());
 
-		    final var sql = new StringBuilder();
-
-		    var state = new StateEntity();
-
-		    sql.append("SELECT ");
-		    sql.append("  d.\"id\" AS \"idDepartamento\", ");
-		    sql.append("  d.\"nombre\" AS \"nombreDepartamento\", ");
-		    sql.append("  p.\"id\" AS \"idPais\", ");
-		    sql.append("  p.\"nombre\" AS \"nombrePais\" ");
-		    sql.append("FROM \"Departamento\" AS d ");
-		    sql.append("INNER JOIN \"Pais\" AS p ");
-		    sql.append("  ON d.\"pais\" = p.\"id\" ");
-		    sql.append("WHERE d.\"id\" = ? ");
-
-
-		    try (var preparedStatement = this.getConnection().prepareStatement(sql.toString())) {
-
-		        preparedStatement.setObject(1, id);
-
-		        try (var resultSet = preparedStatement.executeQuery()) {
-
-		            if (resultSet.next()) {
-
-		                var country = new CountryEntity();
-		                country.setId(UUIDHelper.getUUIDHelper().getFromString(resultSet.getString("idPais")));
-		                country.setName(resultSet.getString("nombrePais"));
-
-		                state.setId(UUIDHelper.getUUIDHelper().getFromString(resultSet.getString("idDepartamento")));
-		                state.setName(resultSet.getString("nombreDepartamento"));
-		                state.setCountry(country);
-		            }
-		        }
-
-		    } catch (final SQLException exception) {
-		        var userMessage = MessagesEnum.USER_ERROR_SEARCH_STATE_FAILED_SQL_EXCEPTION.getContent();
-		        var technicalMessage = MessagesEnum.TECHNICAL_ERROR_STATE_USER_FAILED_SQL_EXCEPTION.getContent()    + exception.getMessage();
-		        throw NoseException.create(exception, userMessage, technicalMessage);
-
-		    } catch (final Exception exception) {
-		        var userMessage =MessagesEnum.USER_ERROR_SEARCH_STATE_FAILED.getContent();
-		        var technicalMessage = MessagesEnum.TECHNICAL_ERROR_STATE_USER_FAILED.getContent() +exception.getMessage();
-		        throw NoseException.create(exception, userMessage, technicalMessage);
-		    }
-
-		    return state;
-		}
-
-		
+	
 	}
 
-
+}
 	
 	
 	

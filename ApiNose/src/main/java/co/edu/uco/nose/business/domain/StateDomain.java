@@ -11,7 +11,7 @@ public final class StateDomain extends Domain {
 	private String name;
 	private CountryDomain country;
 	
-	public StateDomain() {
+	protected StateDomain() {
 		super(UUIDHelper.getUUIDHelper().getDefault());
 		setName(TextHelper.getDefault());
 		setCountry(CountryDomain.getDefaultValue());

@@ -39,9 +39,9 @@ public enum MessagesEnum {
 
     // consultas
     USER_ERROR_SEARCH_USER_FAILED_SQL_EXCEPTION("Se ha presentado un problema tratando de consultar la información de un usuario"," por favor intente de nuevo si el  problema persiste por favor contacte al administrador del sistema"),
-    TECHNICAL_ERROR_SEARCH_USER_FAILED_SQL_EXCEPTION("Se ha presentado un problema inesperado al tratar de ejecutar el proceso de consulta del usuario","verifique que si este conectado a la base de datos"),
+    TECHNICAL_ERROR_SEARCH_USER_FAILED_SQL_EXCEPTION("Error SQL durante la operación de consulta de la información de un usuario", "Se ha presentado un problema de tipo SQLException durante la ejecución de la operación de consulta de la información de un usuario."),
     USER_ERROR_SEARCH_USER_FAILED("Se ha presentado un problema inesperado tratando de consultar la información de un usuario por favor intente de nuevo"," Si el problema persiste por favor contacte al administrador del sistema"),
-    TECHNICAL_ERROR_SEARCH_USER_FAILED( "Se ha presentado un problema inesperado al tratar de ejecutar el proceso de consulta del usuario ","verifique que si este conectado a la base de datos"),
+    TECHNICAL_ERROR_SEARCH_USER_FAILED( "Se ha presentado un problema inesperado al tratar de ejecutar el proceso de consulta del usuario ","Se ha presentado un problema inesperado durante la ejecución de la operación de consulta de la información de un usuario. No fue una SQLException, sino un error no controlado en el proceso de registro."),
 
     // update
     USER_ERROR_UPDATE_USER_FAILED_SQL_EXCEPTION("Se ha presentado un problema tratando de actualizar la información de un usuario por favor intente de nuevo"," Si el problema persiste por favor contacte al administrador del sistema"),

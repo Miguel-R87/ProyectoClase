@@ -9,7 +9,7 @@ import co.edu.uco.nose.crosscuting.helper.UUIDHelper;
 
 public final class UserDomain extends Domain {
 	 
-	private IdentificationTypeDomain identificationType;
+	private IdTypeDomain identificationType;
 	private String identificationNumber;
 	private String firstName;
 	private String middleName;
@@ -21,10 +21,10 @@ public final class UserDomain extends Domain {
 	private boolean emailConfirmed;
 	private boolean cellPhoneNumberConfirmed;
 	
-	public UserDomain() {
+	protected UserDomain() {
 		super(UUIDHelper.getUUIDHelper().getDefault());
-		setIdentificationType(IdentificationTypeDomain.getDefaultValue());
-		setIdentificationNumber(TextHelper.getDefault());;
+		setIdentificationType(IdTypeDomain.getDefaultValue());
+		setIdentificationNumber(TextHelper.getDefault());
 		setFirstName(TextHelper.getDefault());
 		setMiddleName(TextHelper.getDefault());
 		setLastName(TextHelper.getDefault());
@@ -38,7 +38,7 @@ public final class UserDomain extends Domain {
 	
 	public UserDomain(final UUID id) {
 		super(id);
-		setIdentificationType(IdentificationTypeDomain.getDefaultValue());
+		setIdentificationType(IdTypeDomain.getDefaultValue());
 		setIdentificationNumber(TextHelper.getDefault());
 		setFirstName(TextHelper.getDefault());
 		setMiddleName(TextHelper.getDefault());
@@ -52,21 +52,21 @@ public final class UserDomain extends Domain {
 	}
 	
 	
-	public UserDomain(final UUID id, final IdentificationTypeDomain identificationType, final String identificationNumber, final String firstName,
+	public UserDomain(final UUID id, final IdTypeDomain identificationType, final String identificationNumber, final String firstName,
 			final String middleName, final String lastName, final String secondLastName, final CityDomain residenceCity, final String email,
 			final String cellPhoneNumber, final boolean emailConfirmed, final boolean cellPhoneNumberConfirmed) {
 		super(id);
-		this.identificationType = identificationType;
-		this.identificationNumber = identificationNumber;
-		this.firstName = firstName;
-		this.middleName = middleName;
-		this.lastName = lastName;
-		this.secondLastName = secondLastName;
-		this.residenceCity = residenceCity;
-		this.email = email;
-		this.cellPhoneNumber = cellPhoneNumber;
-		this.emailConfirmed = emailConfirmed;
-		this.cellPhoneNumberConfirmed = cellPhoneNumberConfirmed;
+		setIdentificationType(identificationType);
+		setIdentificationNumber(identificationNumber);
+		setFirstName(firstName);
+		setMiddleName(middleName);
+		setLastName(secondLastName);
+		setSecondLastName(secondLastName);
+		setResidenceCity(residenceCity);
+		setEmail(email);
+		setCellPhoneNumber(cellPhoneNumber);
+		setEmailConfirmed(emailConfirmed);
+		setCellPhoneNumberConfirmed(cellPhoneNumberConfirmed);
 	}
 	
 	static UserDomain getDefaultValue() {
@@ -77,12 +77,12 @@ public final class UserDomain extends Domain {
 		return ObjectHelper.getDefault(user, getDefaultValue());
 	}
 
-	public IdentificationTypeDomain getIdentificationType() {
+	public IdTypeDomain getIdentificationType() {
 		return identificationType;
 	}
 	
-	public void setIdentificationType(final IdentificationTypeDomain identificationType) {
-		this.identificationType = ObjectHelper.getDefault(identificationType, IdentificationTypeDomain.getDefaultValue());
+	public void setIdentificationType(final IdTypeDomain identificationType) {
+		this.identificationType = ObjectHelper.getDefault(identificationType, IdTypeDomain.getDefaultValue());
 	}
 	
 	public String getIdentificationNumber() {

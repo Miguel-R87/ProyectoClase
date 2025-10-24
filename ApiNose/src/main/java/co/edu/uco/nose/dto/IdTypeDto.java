@@ -6,31 +6,32 @@ import co.edu.uco.nose.crosscuting.helper.ObjectHelper;
 import co.edu.uco.nose.crosscuting.helper.TextHelper;
 import co.edu.uco.nose.crosscuting.helper.UUIDHelper;
 
-public class IdentificationTypeDto extends Dto {
+public class IdTypeDto {
 	
 	private String name;
+	private UUID id;
 	
-	public IdentificationTypeDto() {
-		super(UUIDHelper.getUUIDHelper().getDefault());
+	public IdTypeDto() {
 		setName(TextHelper.getDefault());
+		setId(UUIDHelper.getUUIDHelper().getDefault());
 	}
 	
-	public IdentificationTypeDto(final UUID id) {
-		super(id);
+	public IdTypeDto(final UUID id) {
+		setId(id);
 		setName(TextHelper.getDefault());
 	}
 	
 
-	public IdentificationTypeDto(final UUID id, final String name) {
-		super(id);
+	public IdTypeDto(final UUID id, final String name) {
+		setId(id);
 		this.name = name;
 	}
 	
-	static IdentificationTypeDto getDefaultValue() {
-		return new IdentificationTypeDto();
+	static IdTypeDto getDefaultValue() {
+		return new IdTypeDto();
 	}
 	
-	static IdentificationTypeDto getDefaultValue(final IdentificationTypeDto identifiactionType) {
+	static IdTypeDto getDefaultValue(final IdTypeDto identifiactionType) {
 		return ObjectHelper.getDefault(identifiactionType, getDefaultValue());
 	}
 
@@ -42,6 +43,13 @@ public class IdentificationTypeDto extends Dto {
 		this.name = TextHelper.getDefaultWithTrim(name);
 	}
 	
+	public UUID getId() {
+		return id;
+	}
+
+	public void setId(final UUID id) {
+		this.id = UUIDHelper.getUUIDHelper().getDefault(id);
+	}
 	
 
 }

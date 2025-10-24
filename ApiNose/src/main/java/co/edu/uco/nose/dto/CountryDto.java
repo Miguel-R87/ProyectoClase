@@ -9,21 +9,21 @@ import co.edu.uco.nose.crosscuting.helper.UUIDHelper;
 
 
 
-public final class CountryDto extends Dto {
+public final class CountryDto  {
 	private String name;
+	private UUID id;
 
 	
 	public CountryDto() {
-		super(UUIDHelper.getUUIDHelper().getDefault());
 		setName(TextHelper.getDefault());
 	}
 	
 	public CountryDto(final UUID id,final String name) {
-		super(id);
-		this.name = name;
+		setName(name);
+		setId(id);
 	}
 	public CountryDto(final UUID id) {
-		super(id);
+		setId(id);
 		setName(TextHelper.getDefault());
 
 	}
@@ -34,6 +34,13 @@ public final class CountryDto extends Dto {
 
 	public void setName(final String name) {
 		this.name = TextHelper.getDefaultWithTrim(name);
+	}
+	public UUID getId() {
+		return id;
+	}
+
+	public void setId(final UUID id) {
+		this.id = UUIDHelper.getUUIDHelper().getDefault(id);
 	}
 	
 	static CountryDto  getDefaultValue() {

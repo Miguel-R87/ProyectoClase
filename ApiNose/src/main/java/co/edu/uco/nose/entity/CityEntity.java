@@ -7,22 +7,23 @@ import co.edu.uco.nose.crosscuting.helper.ObjectHelper;
 import co.edu.uco.nose.crosscuting.helper.TextHelper;
 import co.edu.uco.nose.crosscuting.helper.UUIDHelper;
 
-public final class CityEntity extends Entity{
+public final class CityEntity {
+	private UUID id;
 	private String name;
 	private StateEntity state;
 	
 	public CityEntity() {
-		super(UUIDHelper.getUUIDHelper().getDefault());
+		setId(UUIDHelper.getUUIDHelper().getDefault());
 		setName(TextHelper.getDefault()); 
 		setState(StateEntity.getDefaultValue());
 	}
 	public CityEntity(final UUID id,final String name,final StateEntity state) {
-		super(id);
+		setId(id);
 		setName(name);	
 		setState(state);	
 	}
 	public CityEntity(final UUID id) {
-		super(id);
+		setId(id);
 		setName(name);	
 		setState(state);	
 	}
@@ -51,6 +52,13 @@ public final class CityEntity extends Entity{
 	}
 	public void setState(final StateEntity state) {
 		this.state=ObjectHelper.getDefault(state,StateEntity.getDefaultValue());	
+	}
+	public UUID getId() {
+		return id;
+	}
+
+	public void setId(final UUID id) {
+		this.id = UUIDHelper.getUUIDHelper().getDefault(id);
 	}
 	
 	
