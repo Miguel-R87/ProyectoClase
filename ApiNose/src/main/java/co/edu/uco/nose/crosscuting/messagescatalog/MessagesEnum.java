@@ -80,6 +80,13 @@ public enum MessagesEnum {
     USER_ERROR_SEARCH_CITY_FAILED("Se ha presentado un problema inesperado tratando de consultar la información de una ciudad por favor intente de nuevo","Por favor intente de nuevo Si el problema persiste por favor contacte al administrador del sistema"),
     TECHNICAL_ERROR_CITY_USER_FAILED( "Se ha presentado un problema inesperado al tratar de ejecutar el proceso de consulta de una ciudad ","se ha presentado un problema al intentar realizar la consulta de una ciudad no es un SQL Exception el problema"),
 
+  // MENSAJES EXCEPCIONES PAÍS
+    // consultas
+    USER_ERROR_SEARCH_COUNTRY_FAILED_SQL_EXCEPTION("Se ha presentado un problema tratando de consultar la información de un país"," por favor intente de nuevo si el  problema persiste por favor contacte al administrador del sistema"),
+    TECHNICAL_ERROR_COUNTRY_USER_FAILED_SQL_EXCEPTION("Se ha presentado un problema inesperado al tratar de ejecutar el proceso de consulta de un país","se ha presentado un problema al intentar realizar la consulta de un país"),
+    USER_ERROR_SEARCH_COUNTRY_FAILED("Se ha presentado un problema inesperado tratando de consultar la información de un país por favor intente de nuevo","Por favor intente de nuevo Si el problema persiste por favor contacte al administrador del sistema"),
+    TECHNICAL_ERROR_COUNTRY_USER_FAILED( "Se ha presentado un problema inesperado al tratar de ejecutar el proceso de consulta de un país ","se ha presentado un problema al intentar realizar la consulta de un país no es un SQL Exception el problema"),
+
 	
 	
 	USER_ERROR_TRANSACTION_IS_NOT_STARTED("Transacción no iniciada", "No se ha iniciado la transacción contra la fuente de información deseada. Por favor intente de nuevo."),

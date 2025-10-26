@@ -26,7 +26,7 @@ public class TestUserRegistration {
 
             
            
-            user.setIdentificationNumber("1040874401afs");  
+            user.setIdentificationNumber("1040874401");  
             user.setFirstName("Alejo");              
             user.setMiddleName("a");                
             user.setLastName("Quintero");                  

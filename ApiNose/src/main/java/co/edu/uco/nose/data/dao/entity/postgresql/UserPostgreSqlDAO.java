@@ -305,6 +305,7 @@ public final class  UserPostgreSqlDAO extends SqlConnection implements UserDAO {
 		
 	
 
+	
 	@Override
 	public void delete(UUID id) {
 		
