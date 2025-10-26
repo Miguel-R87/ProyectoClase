@@ -2,12 +2,11 @@ package co.edu.uco.nose.dto;
 
 import java.util.UUID;
 
-import co.edu.uco.nose.crosscuting.helper.BooleanHelper;
 import co.edu.uco.nose.crosscuting.helper.ObjectHelper;
 import co.edu.uco.nose.crosscuting.helper.TextHelper;
 import co.edu.uco.nose.crosscuting.helper.UUIDHelper;
 
-public class UserDto  {
+public final class UserDto  {
 	 private UUID id;
 	private IdTypeDto identificationType;
 	private String identificationNumber;
@@ -20,6 +19,9 @@ public class UserDto  {
 	private String cellPhoneNumber;
 	private boolean emailConfirmed;
 	private boolean cellPhoneNumberConfirmed;
+	private boolean emailConfirmedDefaultValue;
+	private boolean cellPhoneNumberConfirmedDefaultValue;
+	
 	
 	public UserDto() {
 		setId(UUIDHelper.getUUIDHelper().getDefault());
@@ -32,8 +34,10 @@ public class UserDto  {
 		setResidenceCity(CityDto.getDefaultValue());
 		setEmail(TextHelper.getDefault());
 		setCellPhoneNumber(TextHelper.getDefault());
-		setCellPhoneNumberConfirmed(BooleanHelper.getDefault());
-		setEmailConfirmed(BooleanHelper.getDefault());
+		setCellPhoneNumberConfirmed(false);
+		setCellPhoneNumberConfirmedDefaultValue(true);
+		setEmailConfirmed(false);
+		setEmailConfirmedDefaultValue(true);
 	}
 	
 	public UserDto(final UUID id) {
@@ -47,8 +51,10 @@ public class UserDto  {
 		setResidenceCity(CityDto.getDefaultValue());
 		setEmail(TextHelper.getDefault());
 		setCellPhoneNumber(TextHelper.getDefault());
-		setCellPhoneNumberConfirmed(BooleanHelper.getDefault());
-		setEmailConfirmed(BooleanHelper.getDefault());
+		setCellPhoneNumberConfirmed(false);
+		setCellPhoneNumberConfirmedDefaultValue(true);
+		setEmailConfirmed(false);
+		setEmailConfirmedDefaultValue(true);
 	}
 	
 	
@@ -153,19 +159,37 @@ public class UserDto  {
 		return emailConfirmed;
 	}
 	
-	public void setEmailConfirmed(final boolean emailConfirmed) {
-		this.emailConfirmed = BooleanHelper.getDefault(emailConfirmed);
-	}
+
 	
 	public boolean isCellPhoneNumberConfirmed() {
 		return cellPhoneNumberConfirmed;
 	}
 	
-	public void setCellPhoneNumberConfirmed(final boolean cellPhoneNumberConfirmed) {
-		this.cellPhoneNumberConfirmed = BooleanHelper.getDefault(cellPhoneNumberConfirmed);
+
+	private void setEmailConfirmedDefaultValue(final boolean emailConfirmedDefaultValue) {
+		this.emailConfirmedDefaultValue = emailConfirmedDefaultValue;
+	}
+
+	public boolean isCellPhoneNumberConfirmedDefaultValue() {
+		return cellPhoneNumberConfirmedDefaultValue;
+	}
+
+	private void setCellPhoneNumberConfirmedDefaultValue(final boolean cellPhoneNumberConfirmedDefaultValue) {
+		this.cellPhoneNumberConfirmedDefaultValue = cellPhoneNumberConfirmedDefaultValue;
+	}
+	public boolean isEmailConfirmedDefaultValue() {
+		return emailConfirmedDefaultValue;
 	}
 	public UUID getId() {
 		return id;
+	}
+	public void setCellPhoneNumberConfirmed(final boolean cellPhoneNumberConfirmed) {
+		this.cellPhoneNumberConfirmed = cellPhoneNumberConfirmed;
+		setCellPhoneNumberConfirmedDefaultValue(false);
+	}
+	public void setEmailConfirmed(final boolean emailConfirmed) {
+		this.emailConfirmed = emailConfirmed;
+		setEmailConfirmedDefaultValue(false);
 	}
 
 	public void setId(final UUID id) {

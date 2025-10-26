@@ -15,7 +15,7 @@ import java.util.UUID;
 
 public final class   StatePostgreSqlDAO extends SqlConnection implements StateDAO {
 
-	protected StatePostgreSqlDAO(Connection connection) {
+	public StatePostgreSqlDAO(Connection connection) {
 		super(connection);
 		// TODO Auto-generated constructor stub
 	}

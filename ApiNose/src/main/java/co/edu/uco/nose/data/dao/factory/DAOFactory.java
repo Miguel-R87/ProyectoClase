@@ -34,7 +34,8 @@ public abstract class DAOFactory {
     public abstract UserDAO getUserDAO();
     protected abstract void openConnection();
 
-    protected final void initTransaction(){
+    public final void initTransaction(){
+    	SqlConnectionHelper.ensureTransactionIsNotStarted(connection);
 
     	try {
 	connection.setAutoCommit(false);

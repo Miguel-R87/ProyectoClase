@@ -18,9 +18,9 @@ public final class SqlConnectionHelper {
     }
 
     public static void ensureConnectionIsOpen(final Connection connection) {
-
+    	
         ensureConnectionIsNotNull(connection);
-
+        
         try {
             if (connection.isClosed()) {
                 var userMessage = MessagesEnum.USER_ERROR_SQL_CONNECTION_IS_CLOSED.getContent();

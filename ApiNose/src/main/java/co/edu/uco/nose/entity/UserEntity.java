@@ -20,6 +20,8 @@ public final class UserEntity  {
 	private String cellPhoneNumber;
 	private boolean emailConfirmed;
 	private boolean cellPhoneNumberConfirmed;
+	private boolean emailConfirmedDefaultValue;
+	private boolean cellPhoneNumberConfirmedDefaultValue;
 	
 	public UserEntity() {
 		setId(UUIDHelper.getUUIDHelper().getDefault());
@@ -32,8 +34,11 @@ public final class UserEntity  {
 		setResidenceCity(CityEntity.getDefaultValue());
 		setEmail(TextHelper.getDefault());
 		setCellPhoneNumber(TextHelper.getDefault());
-		setCellPhoneNumberConfirmed(BooleanHelper.getDefault());
-		setEmailConfirmed(BooleanHelper.getDefault());
+		setCellPhoneNumberConfirmed(false);
+		setCellPhoneNumberConfirmedDefaultValue(true);
+		setEmailConfirmed(false);
+		setEmailConfirmedDefaultValue(true);
+		
 	}
 	
 	public UserEntity(final UUID id) {
@@ -47,8 +52,10 @@ public final class UserEntity  {
 		setResidenceCity(CityEntity.getDefaultValue());
 		setEmail(TextHelper.getDefault());
 		setCellPhoneNumber(TextHelper.getDefault());
-		setCellPhoneNumberConfirmed(BooleanHelper.getDefault());
-		setEmailConfirmed(BooleanHelper.getDefault());
+		setCellPhoneNumberConfirmed(false);
+		setCellPhoneNumberConfirmedDefaultValue(true);
+		setEmailConfirmed(false);
+		setEmailConfirmedDefaultValue(true);
 	}
 	
 	
@@ -67,6 +74,7 @@ public final class UserEntity  {
 		setCellPhoneNumber(cellPhoneNumber);
 		setCellPhoneNumberConfirmed(cellPhoneNumberConfirmed);
 		setEmailConfirmed(emailConfirmed);
+		
 		
 	}
 	
@@ -154,16 +162,34 @@ public final class UserEntity  {
 		return emailConfirmed;
 	}
 	
+	public boolean isEmailConfirmedDefaultValue() {
+		return emailConfirmedDefaultValue;
+	}
+	
 	public void setEmailConfirmed(final boolean emailConfirmed) {
-		this.emailConfirmed = BooleanHelper.getDefault(emailConfirmed);
+		this.emailConfirmed = emailConfirmed;
+		setEmailConfirmedDefaultValue(false);
+	}
+	private void setEmailConfirmedDefaultValue(boolean emailConfirmedDefaultValue) {
+		this.emailConfirmedDefaultValue = emailConfirmedDefaultValue;
 	}
 	
 	public boolean isCellPhoneNumberConfirmed() {
 		return cellPhoneNumberConfirmed;
 	}
 	
+	public boolean isCellPhoneNumberConfirmedDefaultValue() {
+		return cellPhoneNumberConfirmedDefaultValue;
+	}
+
+	private void setCellPhoneNumberConfirmedDefaultValue(boolean cellPhoneNumberConfirmedDefaultValue) {
+		this.cellPhoneNumberConfirmedDefaultValue = cellPhoneNumberConfirmedDefaultValue;
+	}
+	
+	
 	public void setCellPhoneNumberConfirmed(final boolean cellPhoneNumberConfirmed) {
-		this.cellPhoneNumberConfirmed = BooleanHelper.getDefault(cellPhoneNumberConfirmed);
+		this.cellPhoneNumberConfirmed = cellPhoneNumberConfirmed;
+		setCellPhoneNumberConfirmedDefaultValue(false);
 	}
 	public UUID getId() {
 		return id;

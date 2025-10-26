@@ -24,14 +24,14 @@ public final  class PostgreSqlDaoFactory extends DAOFactory {
 	@Override
     protected void openConnection() {
         try {
-            // 🧠 Conexión a la base de datos postgres
+            //  Conexión a la base de datos postgres
             String url = "jdbc:postgresql://localhost:5432/postgres";
             String user = "postgres"; // tu usuario
-            String password = "miguelo74"; // cámbiala
+            String password = "miguelo74"; 
 
             this.connection = DriverManager.getConnection(url, user, password);
 
-            // 👇 Indicar que quieres trabajar dentro del esquema "proyectoclase"
+            //
             this.connection.createStatement().execute("SET search_path TO proyectoclase");
             
 	}catch(final SQLException exception) {

@@ -2,7 +2,7 @@ package co.edu.uco.nose.business.domain;
 
 import java.util.UUID;
 
-import co.edu.uco.nose.crosscuting.helper.BooleanHelper;
+
 import co.edu.uco.nose.crosscuting.helper.ObjectHelper;
 import co.edu.uco.nose.crosscuting.helper.TextHelper;
 import co.edu.uco.nose.crosscuting.helper.UUIDHelper;
@@ -20,6 +20,9 @@ public final class UserDomain extends Domain {
 	private String cellPhoneNumber;
 	private boolean emailConfirmed;
 	private boolean cellPhoneNumberConfirmed;
+	private boolean emailConfirmedDefaultValue;
+	private boolean cellPhoneNumberConfirmedDefaultValue;
+	
 	
 	protected UserDomain() {
 		super(UUIDHelper.getUUIDHelper().getDefault());
@@ -31,9 +34,10 @@ public final class UserDomain extends Domain {
 		setSecondLastName(TextHelper.getDefault());
 		setResidenceCity(CityDomain.getDefaultValue());
 		setEmail(TextHelper.getDefault());
-		setCellPhoneNumber(TextHelper.getDefault());
-		setCellPhoneNumberConfirmed(BooleanHelper.getDefault());
-		setEmailConfirmed(BooleanHelper.getDefault());
+		setCellPhoneNumberConfirmed(false);
+		setCellPhoneNumberConfirmedDefaultValue(true);
+		setEmailConfirmed(false);
+		setEmailConfirmedDefaultValue(true);
 	}
 	
 	public UserDomain(final UUID id) {
@@ -46,9 +50,10 @@ public final class UserDomain extends Domain {
 		setSecondLastName(TextHelper.getDefault());
 		setResidenceCity(CityDomain.getDefaultValue());
 		setEmail(TextHelper.getDefault());
-		setCellPhoneNumber(TextHelper.getDefault());
-		setCellPhoneNumberConfirmed(BooleanHelper.getDefault());
-		setEmailConfirmed(BooleanHelper.getDefault());
+		setCellPhoneNumberConfirmed(false);
+		setCellPhoneNumberConfirmedDefaultValue(true);
+		setEmailConfirmed(false);
+		setEmailConfirmedDefaultValue(true);
 	}
 	
 	
@@ -154,15 +159,30 @@ public final class UserDomain extends Domain {
 	}
 	
 	public void setEmailConfirmed(final boolean emailConfirmed) {
-		this.emailConfirmed = BooleanHelper.getDefault(emailConfirmed);
+		this.emailConfirmed = emailConfirmed;
+		setEmailConfirmedDefaultValue(false);
 	}
 	
 	public boolean isCellPhoneNumberConfirmed() {
 		return cellPhoneNumberConfirmed;
 	}
 	
+	
+	private void setEmailConfirmedDefaultValue(final boolean emailConfirmedDefaultValue) {
+		this.emailConfirmedDefaultValue = emailConfirmedDefaultValue;
+	}
+	public boolean isCellPhoneNumberConfirmedDefaultValue() {
+		return cellPhoneNumberConfirmedDefaultValue;
+	}
+	public boolean isEmailConfirmedDefaultValue() {
+		return emailConfirmedDefaultValue;
+	}
 	public void setCellPhoneNumberConfirmed(final boolean cellPhoneNumberConfirmed) {
-		this.cellPhoneNumberConfirmed = BooleanHelper.getDefault(cellPhoneNumberConfirmed);
+		this.cellPhoneNumberConfirmed = cellPhoneNumberConfirmed;
+		setCellPhoneNumberConfirmedDefaultValue(false);
+	}
+	private void setCellPhoneNumberConfirmedDefaultValue(final boolean cellPhoneNumberConfirmedDefaultValue) {
+		this.cellPhoneNumberConfirmedDefaultValue = cellPhoneNumberConfirmedDefaultValue;
 	}
 	
 	

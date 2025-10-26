@@ -86,9 +86,91 @@ public enum MessagesEnum {
 	TECHNICAL_ERROR_TRANSACTION_IS_NOT_STARTED( "Transacción no iniciada", "La conexión indica que el modo de auto-commit está activado, por lo tanto no se ha iniciado la transacción."),
 	TECHNICAL_ERROR_SQL_CONNECTION_SQL_EXCEPTION_VALIDATING_TRANSACTION_IS_NOT_STARTED("Error inesperado validando si el autocommit contra la base de datos estaba desactivado", "Se presentó un error de tipo SQLException al validar si el autocommit habia sido desactivado ."),
 	USER_ERROR_SQL_CONNECTION_UNEXPECTED_ERROR_VALIDATING_TRANSACTION_IS_NOT_STARTED("Error inesperado validando el manejo de operaciones contra la fuente de datos", "Ocurrió un problema inesperado tratando de validar el estado de manejo de operaciones"),
-	TECHNICAL_ERROR_SQL_CONNECTION_UNEXPECTED_ERROR_VALIDATING_TRANSACTION_IS_NOT_STARTED("Error inesperado validando si el autocommit contra la base de datos estaba desactivado", "Se presentó un problema inesperado al validar si el autocommit habia sido desactivado. No fue una SQLException, sino un error no controlado en el proceso de validación.");
+	TECHNICAL_ERROR_SQL_CONNECTION_UNEXPECTED_ERROR_VALIDATING_TRANSACTION_IS_NOT_STARTED("Error inesperado validando si el autocommit contra la base de datos estaba desactivado", "Se presentó un problema inesperado al validar si el autocommit habia sido desactivado. No fue una SQLException, sino un error no controlado en el proceso de validación."), 
+	//mensajes para errores en el registro de un usuario
+	USER_ERROR_UNEXPECTED_EXCEPTION_REGISTERING_USER("Error inesperado durante el registro de un nuevo usuario", "Se ha presentado un problema inesperado durante la operación de registro de un nuevo usuario. Por favor intente de nuevo y si el problema persiste contacte al administrador del sistema."),
+	TECHNICAL_ERROR_UNEXPECTED_EXCEPTION_REGISTERING_USER("Error inesperado durante la operación de registro de un nuevo usuario", "Se ha presentado un problema inesperado durante la operación de registro de un nuevo usuario. No fue una SQLException, sino un error no controlado en el proceso de registro."),
 
+	//mensajes de validaciones en validaciones de obligatoriedad en el registro de un nuevo usuario
+	USER_ERROR_WHEN_REGISTERING_USER_NULL_USER(
+		    "No se ha podido procesar la información del usuario porque no fue proporcionada",
+		    "Por favor complete la información del usuario e intente nuevamente"),
+		TECHNICAL_ERROR_WHEN_REGISTERING_USER_NULL_USER(
+		    "El objeto UserDomain es nulo al intentar registrar un usuario",
+		    "Se recibió un objeto UserDomain nulo, no se pudo continuar con la operación"),
+
+		USER_ERROR_WHEN_REGISTERING_USER_NULL_IDENTIFICATION_TYPE(
+		    "El tipo de identificación del usuario no ha sido proporcionado",
+		    "Por favor seleccione un tipo de identificación válido"),
+		TECHNICAL_ERROR_WHEN_REGISTERING_USER_NULL_IDENTIFICATION_TYPE(
+		    "El campo identificationType de UserDomain es nulo",
+		    "Se intentó registrar un usuario sin asignar identificationType"),
+
+		USER_ERROR_WHEN_REGISTERING_USER_NULL_CITY(
+		    "La ciudad de residencia del usuario no ha sido proporcionada",
+		    "Por favor seleccione la ciudad de residencia del usuario"),
+		TECHNICAL_ERROR_WHEN_REGISTERING_USER_NULL_CITY(
+		    "El campo residenceCity de UserDomain es nulo",
+		    "No se pudo registrar la ciudad de residencia del usuario, valor nulo recibido"),
+
+		USER_ERROR_WHEN_REGISTERING_USER_INVALID_IDENTIFICATION_NUMBER(
+		    "El número de identificación del usuario es inválido o excede 25 caracteres",
+		    "Por favor ingrese un número de identificación válido con máximo 25 caracteres"),
+		TECHNICAL_ERROR_WHEN_REGISTERING_USER_INVALID_IDENTIFICATION_NUMBER(
+		    "El campo identificationNumber está vacío o su longitud es mayor a 25 caracteres",
+		    "El número de identificación del usuario no cumple con las restricciones de validación"),
+
+		USER_ERROR_WHEN_REGISTERING_USER_INVALID_FIRST_NAME(
+		    "El primer nombre del usuario es inválido o excede 20 caracteres",
+		    "Por favor ingrese un primer nombre válido con máximo 20 caracteres"),
+		TECHNICAL_ERROR_WHEN_REGISTERING_USER_INVALID_FIRST_NAME(
+		    "El campo firstName está vacío o su longitud es mayor a 20 caracteres",
+		    "Se detectó un primer nombre inválido para el registro del usuario"),
+
+		USER_ERROR_WHEN_REGISTERING_USER_INVALID_MIDDLE_NAME(
+		    "El segundo nombre del usuario es inválido o excede 20 caracteres",
+		    "Por favor ingrese un segundo nombre válido con máximo 20 caracteres"),
+		TECHNICAL_ERROR_WHEN_REGISTERING_USER_INVALID_MIDDLE_NAME(
+		    "El campo middleName está vacío o su longitud es mayor a 20 caracteres",
+		    "Se detectó un segundo nombre inválido para el registro del usuario"),
+
+		USER_ERROR_WHEN_REGISTERING_USER_INVALID_LAST_NAME(
+		    "El primer apellido del usuario es inválido o excede 20 caracteres",
+		    "Por favor ingrese un primer apellido válido con máximo 20 caracteres"),
+		TECHNICAL_ERROR_WHEN_REGISTERING_USER_INVALID_LAST_NAME(
+		    "El campo lastName está vacío o su longitud es mayor a 20 caracteres",
+		    "Se detectó un primer apellido inválido para el registro del usuario"),
+
+		USER_ERROR_WHEN_REGISTERING_USER_INVALID_SECOND_LAST_NAME(
+		    "El segundo apellido del usuario es inválido o excede 20 caracteres",
+		    "Por favor ingrese un segundo apellido válido con máximo 20 caracteres"),
+		TECHNICAL_ERROR_WHEN_REGISTERING_USER_INVALID_SECOND_LAST_NAME(
+		    "El campo secondLastName está vacío o su longitud es mayor a 20 caracteres",
+		    "Se detectó un segundo apellido inválido para el registro del usuario"),
+
+		USER_ERROR_WHEN_REGISTERING_USER_INVALID_EMAIL(
+		    "El correo electrónico del usuario es inválido o excede 250 caracteres",
+		    "Por favor ingrese un correo electrónico válido con máximo 250 caracteres"),
+		TECHNICAL_ERROR_WHEN_REGISTERING_USER_INVALID_EMAIL(
+		    "El campo email es inválido o excede 250 caracteres",
+		    "El correo electrónico proporcionado no cumple con el formato o longitud esperada"),
+
+		USER_ERROR_WHEN_REGISTERING_USER_INVALID_CELL_PHONE_NUMBER(
+		    "El número de celular del usuario es inválido o excede 20 caracteres",
+		    "Por favor ingrese un número de celular válido con máximo 20 caracteres"),
+		TECHNICAL_ERROR_WHEN_REGISTERING_USER_INVALID_CELL_PHONE_NUMBER(
+		    "El campo cellPhoneNumber es inválido o excede 20 caracteres",
+		    "El número de celular proporcionado no cumple con el formato o longitud esperada"),
+	//mensajes para usuarios duplicados
+	USER_ERROR_WHILE_REGISTERING_USER_DUPLICATED_CELL_PHONE_NUMBER("El número de teléfono ya se encuentra registrado", "No es posible registrar al usuario, ya que el teléfono ingresado por el usuario ya se encuentra en uso"),
+	TECHNICAL_ERROR_WHILE_REGISTERING_USER_DUPLICATED_CELL_PHONE_NUMBER("El número de teléfono ya se encuentra registrado", "No es posible registrar al usuario, ya que el teléfono ingresado por el uusario ya se encuentra registrado dentro de la fuente de datos"),
+	USER_ERROR_WHILE_REGISTERING_USER_DUPLICATED_IDENTIFICATION("El tipo y número de documento del usuario ya se encuentra registrado", "No es posible registrar al usuario, ya que el tipo de documento y el número de documento ingresado por el usuario ya se encuentra en uso"),
+	TECHNICAL_ERROR_WHILE_REGISTERING_USER_DUPLICATED_IDENTIFICATION("El tipo y número de documento del usuario ya se encuentra registrado", "No es posible registrar al usuario, ya que el tipo y número de documento del usuario ya se encuentra registrado dentro de la fuente de datos"),
+	USER_ERROR_WHILE_REGISTERING_USER_DUPLICATED_EMAIL("El correo electrónico ya se encuentra registrado", "No es posible registrar al usuario, ya que el correo electrónico ingresado por el usuario ya se encuentra en uso"),
+	TECHNICAL_ERROR_WHILE_REGISTERING_USER_DUPLICATED_EMAIL("El correo electrónico ya se encuentra registrado", "No es posible registrar al usuario, ya que el correo electrónico ingresado por el uusario ya se encuentra registrado dentro de la fuente de datos");
 	
+
+
 private String title;
 private String content;
 private MessagesEnum(final String title, final String content) {
